@@ -16,8 +16,7 @@
             <div class="desc">Grade-School Shoes | Reflection 073</div>
             <div class="box">
                 <div class="price">RM 379.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/2.png')}}"></div>
@@ -25,8 +24,7 @@
             <div class="desc">Grade-School Shoes | Grey-Cosmic</div>
             <div class="box">
                 <div class="price">RM 488.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/3.png')}}"></div>
@@ -34,7 +32,7 @@
             <div class="desc">Men Shoes | Silver-Mint</div>
             <div class="box">
                 <div class="price">RM 539.00</div>
-                <button class="btn">Add To Cart</button>
+                <a href="#preview" class="btn">Add To Cart</a>
             </div>
         </div>
         <div class="card">
@@ -43,8 +41,7 @@
             <div class="desc">Men Shoes | Sea Salt 108</div>
             <div class="box">
                 <div class="price">RM 699.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/5.png')}}"></div>
@@ -52,8 +49,7 @@
             <div class="desc">Men Shoes | White-In-Blue</div>
             <div class="box">
                 <div class="price">RM 450.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/6.png')}}"></div>
@@ -61,8 +57,7 @@
             <div class="desc">Men Shoes | Black-Dk-Grey</div>
             <div class="box">
                 <div class="price">RM 589.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/7.png')}}"></div>
@@ -70,8 +65,7 @@
             <div class="desc">Men Shoes | Multi-Colour</div>
             <div class="box">
                 <div class="price">RM 919.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
         <div class="card">
             <div class="img"><img src="{{url('/images/8.png')}}"></div>
@@ -79,16 +73,15 @@
             <div class="desc">Men Shoes | Chill-Blue</div>
             <div class="box">
                 <div class="price">RM 425.00</div>
-                <button class="btn">Add To Cart</button>
-            </div>
+                <a href="#preview" class="btn">Add To Cart</a>            </div>
         </div>
 
     </div>
 </section>
 
-<!-- <div class="preview">
+<div class="pre" id="preview">
     <div class="pre-img active"><img src="{{url('/images/1.png')}}"></div>
-</div> -->
+</div>
 
 </body>
 </html>

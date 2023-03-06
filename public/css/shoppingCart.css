@@ -59,13 +59,14 @@
 }
 
 .product .card .box .btn{
-    font-size:13px;
+    font-size:15px;
     color:black;
     padding:10px 18px;
     font-weight:900;
     border:2px solid grey;
     border-color:grey;
     border-radius:5px;
+    text-decoration:none;
 }
 
 .product .card .box .btn:hover{
@@ -75,7 +76,7 @@
     transition:0.5s;
 }
 
-/* .preview{
+.pre{
     position:fixed;
     top:0;
     left:0;
@@ -85,9 +86,17 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    transition:opacity 500ms;
+    visibility:hidden;
+    opacity:0;
 }
 
-.preview .pre-img{
+.pre:target{
+    visibility:visible;
+    opacity:1;
+}    
+
+/* .preview .pre-img{
     display:none;
     padding:1rem;
     background:rgb(247, 242, 242);
