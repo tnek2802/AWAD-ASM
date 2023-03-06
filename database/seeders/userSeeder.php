@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class userSeeder extends Seeder
 {
@@ -12,7 +13,18 @@ class userSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        //
+    {//	username	password	email	user_type	contact_num	address	
+
+        DB::table('user')->insert([
+            [
+                'username' => 'dummyname',
+                'password' => 'lalala',
+                'email' => 'dummy@gmail.com',
+                'user_type' => '1',
+                'contact_num' => 123123,
+                'address' => '123123 street Sg Long',
+            ],
+            // add more rows as needed
+        ]);
     }
 }
