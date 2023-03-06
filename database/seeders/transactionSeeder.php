@@ -29,6 +29,12 @@ class transactionSeeder extends Seeder
                 'total_amount' => 200.0,
                 'user_id' => 2,
             ],
+            [
+                'transaction_date' => '2023-03-21',
+                'delivery_address' => '321 Klang',
+                'total_amount' => 300.00,
+                'user_id' => 3,
+            ],
             // add more rows as needed
         ]);
     }
