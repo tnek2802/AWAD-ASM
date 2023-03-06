@@ -17,9 +17,9 @@ class CreateUserTable extends Migration
             $table->bigIncrements('user_id');
             $table->string('username', 50);
             $table->string('password', 60);
-            $table->string('email', 50);
+            $table->string('email', 50)->unique();
             $table->char('user_type', 1);
-            $table->integer('contact_num', 11);
+            $table->integer('contact_num');
             $table->string('address', 255);
         });
     }
