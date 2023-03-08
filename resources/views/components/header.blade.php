@@ -54,7 +54,7 @@
         <br><br>
         <div>
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
+            <a class="active" href="home">Home</a>
             <a href="#">Mens</a>
             <a href="#">Womens</a>
             <a href="#">Location</a>
