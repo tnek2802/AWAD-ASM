@@ -24,7 +24,4 @@ Route::get('/login', function () {
     return view('login');
 });
 
-<<<<<<< Updated upstream
 Route::view('/shoppingPage',"shoppingPage");
-=======
->>>>>>> Stashed changes

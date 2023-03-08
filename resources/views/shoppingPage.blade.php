@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{url('css/shoppingCart.css')}}"/>
 </head>
 <body>
-
+<x-header/>
 <section class="section1">
 </section>
 
