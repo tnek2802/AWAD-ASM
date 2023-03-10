@@ -19,7 +19,7 @@ class CreateUserTable extends Migration
             $table->string('password', 60);
             $table->string('email', 50)->unique();
             $table->char('user_type', 1);
-            $table->integer('contact_num');
+            $table->string('contact_num', 15);
             $table->string('address', 255);
         });
     }
