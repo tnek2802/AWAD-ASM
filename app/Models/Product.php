@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Product extends Model
 {
     use HasFactory;
 
-    // User one-to-many relationship with transaction
+    // Transaction many-to-many relationship with Product
     public function hasTransaction() {
-        return $this->hasMany(Transaction::class);
+        return $this->belongsToMany(Transaction::class);
     }
-
 }
