@@ -11,6 +11,7 @@
 .topnav {
   overflow: hidden;
   background-color: #333;
+  margin-bottom: 10px;
 }
 
 .topnav a {
@@ -55,8 +56,8 @@
         <div>
         <div class="topnav">
             <a class="active" href="home">Home</a>
-            <a href="#">Mens</a>
-            <a href="#">Womens</a>
+            <a href="shoppingPage">Mens</a>
+            <a href="shoppingPage">Womens</a>
             <a href="#">Location</a>
 
         </div>
