@@ -24,4 +24,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/adminLogin', function () {
+    return view('adminLogin');
+});
+
 Route::view('/shoppingPage',"shoppingPage");
