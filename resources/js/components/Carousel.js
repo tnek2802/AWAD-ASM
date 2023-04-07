@@ -18,6 +18,9 @@ function Carousel() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 4000,    
+        centerPadding: '50px',
     };
     return (
         <Slider {...settings}>
