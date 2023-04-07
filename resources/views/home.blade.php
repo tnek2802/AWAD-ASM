@@ -1,10 +1,14 @@
 <x-header />
-<link href='/css/app.css' rel='stylesheet'>
+<link rel='stylesheet' href="{{url('css/home.css')}}">
 <!-- <h1> Homepage</h1> -->
 <!-- <div id='home'></div> -->
 
 <!-- <div style="max-width: 100%; max-height: 10px;" id='slider'></div> -->
-<div id='carousel'></div>
+<body>
+    <div class='carousel-container'> <div class='carousel' id='carousel'></div></div>
+   
+</body>
+
 
 
 

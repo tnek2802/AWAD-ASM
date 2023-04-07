@@ -1,0 +1,12 @@
+.carousel-container {
+    max-width: 80%; 
+    max-height: 10px;
+    align-self: center;
+}
+.carousel{
+    align-items: center;
+}
+
+body {
+    background: grey;
+}

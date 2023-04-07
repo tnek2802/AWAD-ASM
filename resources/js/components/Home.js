@@ -11,7 +11,7 @@ import {
     Button,
 } from "reactstrap";
 import ReactDOM from "react-dom";
-import "../../css/homeStyle.css";
+import "../../css/homeJS.css";
 
 function Home() {
     return (
