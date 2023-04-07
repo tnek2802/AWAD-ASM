@@ -12,13 +12,14 @@
         <div class='carousel-container'>
             <div class='carousel' id='carousel'></div>
             <div class='carousel-header'>
-                <p>Unlock your<br>true potential.</p>
+                <p>Unlock your<br>true potential.<br>
+                <a href="">Shop Now.</a></p>
             </div>
         </div>
     </div>
 
     <div class='trending-wrapper'>
-
+        <div id='trending'></div>
     </div>
 
     <div class='company-background-wrapper'>

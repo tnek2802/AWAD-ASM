@@ -7,9 +7,7 @@ function Trending() {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div className="card-header">Trending Component</div>
-
-                        <div className="card-body">I'm a trending component!</div>
+                        <h1>IM GONNA PUT TRENDING PRODUCTS IN THIS COMPONENT HERE OK</h1>
                     </div>
                 </div>
             </div>
@@ -17,7 +15,7 @@ function Trending() {
     );
 }
 
-export default Example;
+export default Trending;
 
 if (document.getElementById('trending')) {
     ReactDOM.render(<Trending />, document.getElementById('trending'));
