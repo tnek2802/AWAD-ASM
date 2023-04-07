@@ -15,4 +15,6 @@ require('./bootstrap');
 require('./components/Example');
 require('./components/Home');
 require('./components/Carousel');
+require('./components/Footer');
+require('./components/Trending');
 
