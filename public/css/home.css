@@ -8,3 +8,21 @@
 body {
     background: white;
 }
+
+.company-background {
+    margin-top: 100px;
+    background: #D3D3D3;
+    padding: 10px;
+}
+
+.company-background-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.company-background-text {
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+}

@@ -25,7 +25,9 @@ function Carousel() {
     return (
         <Slider {...settings}>
             <div>
+            {/* <div class='img1-text' style="position: absolute;">hi</div> */}
             <img src={carousel1}/>
+            
             </div>
             <div>
             <img src={carousel2}/>
