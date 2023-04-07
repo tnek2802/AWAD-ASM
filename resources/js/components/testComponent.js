@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import ReactDOM from "react-dom";
 
-function Example() {
+function testComponent() {
     return (
         <Container>
             <h1 className="mt-5">Welcome to our Apparel Store!</h1>
@@ -73,8 +73,11 @@ function Example() {
     );
 }
 
-export default Example;
+export default testComponent;
 
-if (document.getElementById("example")) {
-    ReactDOM.render(<Example />, document.getElementById("example"));
+if (document.getElementById("testComponent")) {
+    ReactDOM.render(
+        <testComponent />,
+        document.getElementById("testComponent")
+    );
 }
