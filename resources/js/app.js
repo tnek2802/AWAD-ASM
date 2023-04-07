@@ -14,5 +14,6 @@ require('./bootstrap');
 
 require('./components/Example');
 require('./components/Home');
-require('./components/Slider');
+// require('./components/Slider');
 require('./components/Carousel');
+

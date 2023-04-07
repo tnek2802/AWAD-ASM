@@ -1,47 +1,33 @@
-import React, { useState } from "react";
-import CarouselItem from "./CarouselItem";
-import ReactDOM from "react-dom";
+import React from "react";
+import Slider from "react-slick";
+import ReactDOM from 'react-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import carousel1 from '../../../public/images/carousel1.jpg';
+import carousel2 from '../../../public/images/carousel2.jpg';
+import carousel3 from '../../../public/images/carousel3.jpg';
 
 function Carousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      image: "public/images/carousel1.jpg",
-      caption: "Slide 1",
-    },
-    {
-      image: "public/images/carousel2.jpg",
-      caption: "Slide 2",
-    },
-    {
-      image: "public/images/carousel3.jpg",
-      caption: "Slide 3",
-    },
-  ];
-
-  const handlePrevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
-  };
-
-  return (
-    <div className="carousel">
-      <div className="carousel-wrapper" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-        {slides.map((slide, index) => (
-          <CarouselItem key={index} image={slide.image} caption={slide.caption} />
-        ))}
-      </div>
-
-      <div className="carousel-controls">
-        <button onClick={handlePrevSlide}>Prev</button>
-        <button onClick={handleNextSlide}>Next</button>
-      </div>
-    </div>
-  );
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+    return (
+        <Slider {...settings}>
+            <div>
+            <img src={carousel1}/>
+            </div>
+            <div>
+            <img src={carousel2}/>
+            </div>
+            <div>
+            <img src={carousel3}/>
+            </div>
+        </Slider>
+    );
 }
 
 export default Carousel;

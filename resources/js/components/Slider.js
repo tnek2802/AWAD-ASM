@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import "../../css/slider.css";
+import carousel1 from '../../../public/images/carousel1.jpg';
+import carousel2 from '../../../public/images/carousel2.jpg';
+import carousel3 from '../../../public/images/carousel3.jpg';
 
 function Slider() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,9 +20,9 @@ function Slider() {
       <div>
         <div className="slider-container">
           <div className="slider-wrapper" style={{ transform: `translateX(-${(currentPage - 1) * 100}%)` }}>
-            <div className="slider">Page 1</div>
-            <div className="slider">Page 2</div>
-            <div className="slider">Page 3</div>
+            <div className="slider"><img src={carousel1}/></div>
+            <div className="slider"><img src={carousel2}/></div>
+            <div className="slider"><img src={carousel3}/></div>
           </div>
         </div>
   
@@ -32,7 +35,7 @@ function Slider() {
 
 }
 
-export default Slider;
+// export default Slider;
 
 if (document.getElementById("slider")) {
     ReactDOM.render(<Slider />, document.getElementById("slider"));
