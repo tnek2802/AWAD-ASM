@@ -26,11 +26,33 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/adminLogin', function () {
-    return view('adminLogin');
+Route::get('/MenShoes', function () {
+    return view('MenShoes');
 });
 
+Route::get('/WomenShoes', function () {
+    return view('WomenShoes');
+});
+
+Route::get('/MenClothes', function () {
+    return view('MenClothes');
+});
+
+Route::get('/WomenClothes', function () {
+    return view('WomenClothes');
+});
+
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::view('/user', 'user');
+});
+
+Route::group(['middleware' => 'auth:admin'], function () {
+    Route::view('/admin', 'admin');
+});
+
+Route::get('logout', [LoginController::class, 'logout']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
