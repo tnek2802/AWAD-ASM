@@ -3,9 +3,7 @@
     <link rel="stylesheet" href="{{url('css/shoppingCart.css')}}"/>
 </head>
 <body>
-
-<section class="section1">
-</section>
+<x-header/>
 
 <section class="section2">
     <div class="product">
@@ -85,15 +83,16 @@
         <table class="table">
 		<thead>
 			<tr>
-				<th colspan="4">Size Selection</th>
+				<th colspan="5">Size Selection</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="nb574.s"><label for="nb574.s">S</label></td>
-				<td><input type="checkbox" id="nb574.m"><label for="nb574.m">M</label></td>
-                <td><input type="checkbox" id="nb574.l"><label for="nb574.l">L</label></td>
-				<td><input type="checkbox" id="nb574.xl"><label for="nb574.xl">XL</label></td>
+				<td><input type="checkbox" id="nb574.8"><label for="nb574.8">8</label></td>
+				<td><input type="checkbox" id="nb574.9"><label for="nb574.9">9</label></td>
+                <td><input type="checkbox" id="nb574.10"><label for="nb574.10">10</label></td>
+				<td><input type="checkbox" id="nb574.11"><label for="nb574.11">11</label></td>
+                <td><input type="checkbox" id="nb574.12"><label for="nb574.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -117,11 +116,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="ne.s"><label for="ne.s">S</label></td>
-				<td><input type="checkbox" id="ne.m"><label for="ne.m">M</label></td>
-                <td><input type="checkbox" id="ne.l"><label for="ne.l">L</label></td>
-				<td><input type="checkbox" id="ne.xl"><label for="ne.xl">XL</label></td>
-
+				<td><input type="checkbox" id="ne.8"><label for="ne.8">8</label></td>
+				<td><input type="checkbox" id="ne.9"><label for="ne.9">9</label></td>
+                <td><input type="checkbox" id="ne.10"><label for="ne.10">10</label></td>
+				<td><input type="checkbox" id="ne.11"><label for="ne.11">11</label></td>
+                <td><input type="checkbox" id="ne.12"><label for="ne.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -145,11 +144,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="ndl.s"><label for="ndl.s">S</label></td>
-				<td><input type="checkbox" id="ndl.m"><label for="ndl.m">M</label></td>
-                <td><input type="checkbox" id="ndl.l"><label for="ndl.l">L</label></td>
-				<td><input type="checkbox" id="ndl.xl"><label for="ndl.xl">XL</label></td>
-
+				<td><input type="checkbox" id="ndl.8"><label for="ndl.8">8</label></td>
+				<td><input type="checkbox" id="ndl.9"><label for="ndl.9">9</label></td>
+                <td><input type="checkbox" id="ndl.10"><label for="ndl.10">10</label></td>
+				<td><input type="checkbox" id="ndl.11"><label for="ndl.11">11</label></td>
+                <td><input type="checkbox" id="ndl.12"><label for="ndl.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -173,10 +172,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="nbn.s"><label for="nbn.s">S</label></td>
-				<td><input type="checkbox" id="nbn.m"><label for="nbn.m">M</label></td>
-                <td><input type="checkbox" id="nbn.l"><label for="nbn.l">L</label></td>
-				<td><input type="checkbox" id="nbn.xl"><label for="nbn.xl">XL</label></td>
+				<td><input type="checkbox" id="nbn.8"><label for="nbn.8">8</label></td>
+				<td><input type="checkbox" id="nbn.9"><label for="nbn.9">9</label></td>
+                <td><input type="checkbox" id="nbn.10"><label for="nbn.10">10</label></td>
+				<td><input type="checkbox" id="nbn.11"><label for="nbn.11">11</label></td>
+                <td><input type="checkbox" id="nbn.12"><label for="nbn.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -200,10 +200,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="naf3.s"><label for="naf3.s">S</label></td>
-				<td><input type="checkbox" id="naf3.m"><label for="naf3.m">M</label></td>
-                <td><input type="checkbox" id="naf3.l"><label for="naf3.l">L</label></td>
-				<td><input type="checkbox" id="naf3.xl"><label for="naf3.xl">XL</label></td>
+				<td><input type="checkbox" id="naf3.8"><label for="naf3.8">8</label></td>
+				<td><input type="checkbox" id="naf3.9"><label for="naf3.9">9</label></td>
+                <td><input type="checkbox" id="naf3.10"><label for="naf3.10">10</label></td>
+				<td><input type="checkbox" id="naf3.11"><label for="naf3.11">11</label></td>
+                <td><input type="checkbox" id="naf3.12"><label for="naf3.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -227,10 +228,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="nat.s"><label for="nat.s">S</label></td>
-				<td><input type="checkbox" id="nat.m"><label for="nat.m">M</label></td>
-                <td><input type="checkbox" id="nat.l"><label for="nat.l">L</label></td>
-				<td><input type="checkbox" id="nat.xl"><label for="nat.xl">XL</label></td>
+				<td><input type="checkbox" id="nat.8"><label for="nat.8">8</label></td>
+				<td><input type="checkbox" id="nat.9"><label for="nat.9">9</label></td>
+                <td><input type="checkbox" id="nat.10"><label for="nat.10">10</label></td>
+				<td><input type="checkbox" id="nat.11"><label for="nat.11">11</label></td>
+                <td><input type="checkbox" id="nat.12"><label for="nat.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -254,10 +256,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="nlxx.s"><label for="nlxx.s">S</label></td>
-				<td><input type="checkbox" id="nlxx.m"><label for="nlxx.m">M</label></td>
-                <td><input type="checkbox" id="nlxx.l"><label for="nlxx.l">L</label></td>
-				<td><input type="checkbox" id="nlxx.xl"><label for="nlxx.xl">XL</label></td>
+				<td><input type="checkbox" id="nlxx.8"><label for="nlxx.8">8</label></td>
+				<td><input type="checkbox" id="nlxx.9"><label for="nlxx.9">9</label></td>
+                <td><input type="checkbox" id="nlxx.10"><label for="nlxx.10">10</label></td>
+				<td><input type="checkbox" id="nlxx.11"><label for="nlxx.11">11</label></td>
+                <td><input type="checkbox" id="nlxx.12"><label for="nlxx.12">12</label></td>
             </tr>
         </tbody>
         </table>
@@ -281,10 +284,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="checkbox" id="ndh.s"><label for="ndh.s">S</label></td>
-				<td><input type="checkbox" id="ndh.m"><label for="ndh.m">M</label></td>
-                <td><input type="checkbox" id="ndh.l"><label for="ndh.l">L</label></td>
-				<td><input type="checkbox" id="ndh.xl"><label for="ndh.xl">XL</label></td>
+				<td><input type="checkbox" id="ndh.8"><label for="ndh.8">8</label></td>
+				<td><input type="checkbox" id="ndh.9"><label for="ndh.9">9</label></td>
+                <td><input type="checkbox" id="ndh.10"><label for="ndh.10">10</label></td>
+				<td><input type="checkbox" id="ndh.11"><label for="ndh.11">11</label></td>
+                <td><input type="checkbox" id="ndh.12"><label for="ndh.12">12</label></td>
+            </tr>
             </tr>
         </tbody>
         </table>
