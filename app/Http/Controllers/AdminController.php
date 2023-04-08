@@ -9,13 +9,24 @@ class AdminController extends Controller
 {
     public function addProduct(){
         $product = new Product;
+        //details
+        $product->save();
     }
 
-    public function deleteProduct(Request $req){
-        
+    public function deleteProduct($id){
+        $product = Product::find($id);
+        $product->save();
+        return redirect('adminPanel');
     }
 
     public function editProduct(Request $req){
+        $product = Product::find($req->id);
+        //details
+        $product->save();
+    }
+
+    public function showEdit($id){
+        $product = Product::find($id);
 
     }
 }
