@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSizesTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSizesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sizes', function (Blueprint $table) {
-            $table->bigIncrements('product_id');
-            $table->integer('S');
-            $table->integer('M');
-            $table->integer('L');
-            $table->integer('XL');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateSizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sizes');
+        Schema::dropIfExists('users');
     }
 }
