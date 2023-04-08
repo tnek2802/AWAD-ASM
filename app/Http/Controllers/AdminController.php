@@ -10,6 +10,7 @@ class AdminController extends Controller
     public function showProduct(){
         $product = Product::all();
         return view('adminPanel',['products' => $product]);
+        //$products as $product in view
     }
 
     public function addProduct(){
