@@ -26,10 +26,15 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/adminLogin', function () {
-    return view('adminLogin');
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::view('/user', 'user');
 });
 
+Route::group(['middleware' => 'auth:admin'], function () {
+    Route::view('/admin', 'admin');
+});
+
+Route::get('logout', [LoginController::class, 'logout']);
 
 Auth::routes();
 
