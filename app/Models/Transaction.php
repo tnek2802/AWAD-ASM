@@ -10,12 +10,12 @@ class Transaction extends Model
     use HasFactory;
 
     // User one-to-many relationship with Transaction
-    public function hasUser() {
+    public function User() {
         return $this->belongsTo(User::class);
     }
 
     // Transaction many-to-many relationship with Product
-    public function hasProduct() {
+    public function Products() {
         return $this->belongsToMany(Product::class);
     }
 }
