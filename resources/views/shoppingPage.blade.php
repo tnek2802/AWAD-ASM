@@ -338,6 +338,7 @@
 </script>
 </body>
 </html>
+<<<<<<< HEAD:resources/views/shoppingPage.blade.php
 <html>
 <head>
     <link rel="stylesheet" href="{{url('css/shoppingCart.css')}}"/>
@@ -1004,3 +1005,5 @@
 </body>
 </html>
 @endsection
+=======
+>>>>>>> parent of f8012df (Merge branch 'woody' of https://github.com/tnek2802/AWAD-ASM into woody):resources/views/MenShoes.blade.php
