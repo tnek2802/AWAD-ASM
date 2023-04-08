@@ -13,28 +13,32 @@ class userSeeder extends Seeder
      * @return void
      */
     public function run()
-    {//	username	password	email	user_type	contact_num	address	
+    {
         for($i = 1; $i <= 9; $i++) {
-            DB::table('user')->insert([
+            DB::table('users')->insert([
             [
                 'username' => 'user'.$i,
                 'password' => bcrypt('password'),
                 'email' => 'user'.$i.'@gmail.com',
-                'user_type' => '1',
+                'role' => 'u',
                 'contact_num' => '012123123'.$i,
                 'address' => 'address'.$i,
+                'created_at' => '2023-03-21',
+                'updated_at' => '2023-03-21',
             ],
         ]);
      }
 
-         DB::table('user')->insert([
+         DB::table('users')->insert([
             [
                 'username' => 'admin',
                 'password' => bcrypt('admin'),
                 'email' => 'admin@gmail.com',
-                'user_type' => '0',
+                'role' => 'a',
                 'contact_num' => '0121231230',
                 'address' => 'admin_address',
+                'created_at' => '2023-03-21',
+                'updated_at' => '2023-03-21',
             ],
         ]);
     }
