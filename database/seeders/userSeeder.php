@@ -13,7 +13,7 @@ class userSeeder extends Seeder
      * @return void
      */
     public function run()
-    {//	username	password	email	user_type	contact_num	address	
+    {
         for($i = 1; $i <= 9; $i++) {
             DB::table('users')->insert([
             [

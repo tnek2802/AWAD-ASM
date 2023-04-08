@@ -9,7 +9,7 @@ class Size extends Model
 {
     use HasFactory;
 
-    // Product one-to-many relationship with Size
+    // Product one-to-one relationship with Size
     public function hasProduct() {
         return $this->belongsTo(Product::class);
     }
