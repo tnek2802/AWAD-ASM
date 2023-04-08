@@ -13,9 +13,9 @@ class userSeeder extends Seeder
      * @return void
      */
     public function run()
-    {//	username	password	email	user_type	contact_num	address	
+    {
         for($i = 1; $i <= 9; $i++) {
-            DB::table('user')->insert([
+            DB::table('users')->insert([
             [
                 'username' => 'user'.$i,
                 'password' => bcrypt('password'),
@@ -23,11 +23,13 @@ class userSeeder extends Seeder
                 'role' => 'user',
                 'contact_num' => '012123123'.$i,
                 'address' => 'address'.$i,
+                'created_at' => '2023-03-21',
+                'updated_at' => '2023-03-21',
             ],
         ]);
      }
 
-         DB::table('user')->insert([
+         DB::table('users')->insert([
             [
                 'username' => 'admin',
                 'password' => bcrypt('admin'),
@@ -35,6 +37,8 @@ class userSeeder extends Seeder
                 'role' => 'admin',
                 'contact_num' => '0121231230',
                 'address' => 'admin_address',
+                'created_at' => '2023-03-21',
+                'updated_at' => '2023-03-21',
             ],
         ]);
     }
