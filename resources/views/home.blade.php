@@ -44,3 +44,5 @@
 
 
 <script src="/js/app.js"></script>
+
+{{-- have to install react, reactstrap and react-slick --}}
