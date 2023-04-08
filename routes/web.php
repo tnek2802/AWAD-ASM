@@ -29,19 +29,3 @@ Route::get('/adminLogin', function () {
 });
 
 Route::view('/shoppingPage',"shoppingPage");
-
-Route::get('/adminLogin', function () {
-    return view('adminLogin');
-});
-
-Route::get('/MenShoes', function () {
-    return view('MenShoes');
-});
-
-Route::get('/WomenShoes', function () {
-    return view('WomenShoes');
-});
-
-Route::get('/MenClothes', function () {
-    return view('MenClothes');
-});
