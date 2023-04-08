@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-@extends('layouts.app')
-@section('content')
+<div id='header'></div>
 <html>
 <link rel='stylesheet' href="{{ url('css/home.css') }}">
 <body>
