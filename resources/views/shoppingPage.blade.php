@@ -48,7 +48,7 @@
             <div class="img"><img src="{{url('/images/5.png')}}"></div>
             <div class="title">Nike Air Force 3</div>
             <div class="desc">Men Shoes | White-In-Blue</div>
-            <div class="box">
+            <div class="box">  
                 <div class="price">RM 450.00</div>
             </div>
         </div>
