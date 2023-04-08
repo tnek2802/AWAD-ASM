@@ -28,8 +28,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = '/home';
+    //it redirects to here when login success
+    protected $redirectTo = '/';
     /**
      * Create a new controller instance.
      *
@@ -57,21 +57,5 @@ class LoginController extends Controller
         }
         return back()->withInput($request->only('email', 'remember'));
     }
-
-     // public function showAdminLoginForm()
-    // {
-    //     return view('auth.login', ['url' => 'admin']);
-    // }
-    // public function adminLogin(Request $request)
-    // {
-    //     $this->validate($request, [
-    //     'email' => 'required|email',
-    // 'password' => 'required|min:6'
-    // ]);
-    // if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-    //     return redirect()->intended('/admin');
-    // }
-    // return back()->withInput($request->only('email', 'remember'));
-    // }
 
 }

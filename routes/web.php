@@ -10,10 +10,7 @@ Route::get('/shoppingPage', function () {
 Route::get('/', function () {
     return view('home');
 });
-// Route::get('/home', function () {
-//     return view('home');
-// });
-//having many home home is not really good la supposedly so try to clean up abit
+
 Route::get('/MenShoes', function () {
     return view('MenShoes');
 });
@@ -38,7 +35,7 @@ Route::get('/WomenClothes', function () {
 Auth::routes();
 
 Route::get('/login/user', [LoginController::class, 'showUserLoginForm']);
-Route::post('/login', [LoginController::class, 'userLogin']);
+Route::post('/login/user', [LoginController::class, 'userLogin']);
 
 Route::group(['middleware' => 'auth:user'], function () {
     Route::view('/user', 'loginSuccess');
