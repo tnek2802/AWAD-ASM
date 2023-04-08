@@ -11,10 +11,7 @@ Route::get('/shoppingPage', function () {
 Route::get('/', function () {
     return view('home');
 });
-// Route::get('/home', function () {
-//     return view('home');
-// });
-//having many home home is not really good la supposedly so try to clean up abit
+
 Route::get('/MenShoes', function () {
     return view('MenShoes');
 });
@@ -42,7 +39,7 @@ Route::get('/login/admin', [LoginController::class, 'showAdminLoginForm']);
 
 Route::get('/register/admin', [RegisterController::class, 'showAdminRegisterForm']);
 
-Route::post('/login/admin', [LoginController::class, 'adminLogin']);
+Route::post('/login/admin/user', [LoginController::class, 'adminLogin']);
 
 Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 
