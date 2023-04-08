@@ -7,6 +7,11 @@ use App\Models\Product;
 
 class AdminController extends Controller
 {
+    public function showProduct(){
+        $product = Product::all();
+        return view('adminPanel',['products' => $product]);
+    }
+
     public function addProduct(){
         $product = new Product;
         //details
