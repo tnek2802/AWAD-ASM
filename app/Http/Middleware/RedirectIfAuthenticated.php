@@ -12,7 +12,7 @@ class RedirectIfAuthenticated
             return redirect('/home');
         }
         if ($guard == "user" && Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect('/user');
         }
         if (Auth::guard($guard)->check()) {
             return redirect('/home');

@@ -1,17 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
@@ -20,10 +12,6 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-});
-
-Route::get('/login', function () {
-    return view('login');
 });
 
 Route::get('/MenShoes', function () {
@@ -41,18 +29,28 @@ Route::get('/MenClothes', function () {
 Route::get('/WomenClothes', function () {
     return view('WomenClothes');
 });
+//END shopping and products section
+
+
+
+
+// START authentication section
+Auth::routes();
+
+Route::get('/login/user', [LoginController::class, 'showUserLoginForm']);
+Route::post('/login', [LoginController::class, 'userLogin']);
 
 Route::group(['middleware' => 'auth:user'], function () {
-    Route::view('/user', 'user');
+    Route::view('/user', 'loginSuccess');
 });
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin');
-});
+// Route::group(['middleware' => 'auth:admin'], function () {
+//     Route::view('/admin', 'admin');
+// });
 
 Route::get('logout', [LoginController::class, 'logout']);
+//END authentication section
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
