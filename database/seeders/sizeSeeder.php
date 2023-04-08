@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Size;
 
-class transactionSeeder extends Seeder
+class sizeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,6 @@ class transactionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('transaction')->insert([
-            
-        ]);
+        Size::factory()->count(8)->create();
     }
 }
