@@ -24,16 +24,6 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/adminLogin', function () {
-    return view('adminLogin');
-});
-
-Route::view('/shoppingPage',"shoppingPage");
-
-Route::get('/adminLogin', function () {
-    return view('adminLogin');
-});
-
 Route::get('/MenShoes', function () {
     return view('MenShoes');
 });
@@ -45,3 +35,8 @@ Route::get('/WomenShoes', function () {
 Route::get('/MenClothes', function () {
     return view('MenClothes');
 });
+
+Route::get('/WomenClothes', function () {
+    return view('WomenClothes');
+});
+
