@@ -1,8 +1,8 @@
-<x-header />
 <!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
 <html>
 <link rel='stylesheet' href="{{ url('css/home.css') }}">
-
 <body>
     <h1 class='home-title'>
         WELCOME TO ABIBAS, THE HOUSE OF CLASSICS.
@@ -13,7 +13,7 @@
             <div class='carousel' id='carousel'></div>
             <div class='carousel-header'>
                 <p>Unlock your<br>true potential.<br>
-                <a href="">Shop Now.</a></p>
+                <a href="/shoppingPage">Shop Now.</a></p>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
     </div>
 
 </body>
-
+@endsection
 
 
 
