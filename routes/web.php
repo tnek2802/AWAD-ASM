@@ -26,6 +26,22 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/MenShoes', function () {
+    return view('MenShoes');
+});
+
+Route::get('/WomenShoes', function () {
+    return view('WomenShoes');
+});
+
+Route::get('/MenClothes', function () {
+    return view('MenClothes');
+});
+
+Route::get('/WomenClothes', function () {
+    return view('WomenClothes');
+});
+
 Route::group(['middleware' => 'auth:user'], function () {
     Route::view('/user', 'user');
 });
@@ -40,6 +56,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
