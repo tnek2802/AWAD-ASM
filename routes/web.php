@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/shoppingPage', function () {
+    return view('shoppingPage');
+});
 Route::get('/', function () {
     return view('home');
 });
@@ -40,3 +42,11 @@ Route::get('/WomenClothes', function () {
     return view('WomenClothes');
 });
 
+Route::get('/adminLogin', function () {
+    return view('adminLogin');
+});
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
