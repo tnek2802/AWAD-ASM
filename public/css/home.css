@@ -1,0 +1,63 @@
+body {
+    background: #191919;
+}
+
+.home-title {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 60px;
+}
+
+.carousel-header {
+    font-size: 80px;
+    position: absolute;
+    float: left;
+    text-align: left;
+    margin-top: -500px;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.carousel-container {
+    margin-top: 50px;
+    max-width: 85%; 
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.carousel {
+      outline: none;
+      margin: 0;
+}
+
+
+.company-background-wrapper {
+    margin-top: 100px;
+    background: #D3D3D3;
+    padding: 10px;
+}
+
+.company-background-title {
+    text-align: left;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.company-background-text {
+    text-align: left;
+    font-size: 25px;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-family: 'Trebuchet MS', sans-serif;
+}
