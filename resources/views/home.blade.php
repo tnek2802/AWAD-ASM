@@ -2,11 +2,13 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <div id='header'></div>
+        {{-- <div id='header'></div> --}}
+        @extends('layouts\app')
 </head>
-
 <html>
 <link rel='stylesheet' href="{{ url('css/home.css') }}">
+
+@section('content')
 <body>
     <h1 class='home-title'>
         WELCOME TO ABIBAS, THE HOUSE OF CLASSICS.
@@ -44,7 +46,7 @@
 
 </body>
 
-
+@endsection
 
 
 <script src="/js/app.js"></script>
