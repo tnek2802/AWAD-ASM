@@ -10,10 +10,10 @@ Route::get('/shoppingPage', function () {
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/home', function () {
-    return view('home');
-});
-
+// Route::get('/home', function () {
+//     return view('home');
+// });
+//having many home home is not really good la supposedly so try to clean up abit
 Route::get('/MenShoes', function () {
     return view('MenShoes');
 });
@@ -52,5 +52,5 @@ Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
