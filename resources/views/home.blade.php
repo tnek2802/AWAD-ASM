@@ -32,7 +32,7 @@
                     <div class="card">
                         <div class="card-header">{{ $product->product_name }}</div>
                         <div class="card-body">
-                            <img src="{{ $product->image }}" >
+                            <img src="{{ $product->image }}" class='img-fluid'>
                             <p>{{ $product->product_description }}</p>
                             <p>Price: {{ $product->product_price }}</p>
                         </div>
