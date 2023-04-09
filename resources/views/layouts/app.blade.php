@@ -84,7 +84,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
-                                    
                                 @endif
 
                                 <li class="nav-item dropdown">
