@@ -64,5 +64,6 @@
 
 
 <script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
 {{-- have to install react, reactstrap and react-slick --}}
