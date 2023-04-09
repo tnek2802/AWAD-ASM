@@ -42,7 +42,7 @@ Route::get("/profile" , [UserController::class, 'preLoads']);
 Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
 //GET ORDER DETAILS PAGE
-Route::get("/orderdetails/{userid}", [transactionController::class,'getOrderDetails']);
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
 
 // START authentication section
 Auth::routes();
