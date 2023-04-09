@@ -69,8 +69,8 @@ Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
-
-
+//GET ORDER DETAILS PAGE
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
 
 Auth::routes();
 

@@ -8,5 +8,5 @@ use App\Models\Transaction; // import transaction
 
 class transactionController extends Controller
 {
-    //
+    
 }
