@@ -1,39 +1,46 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\productController;
 
+//START routes to home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+//END home routes
 
 //START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
-// Route::get('/', function () {
-//     // return redirect('/home');
-//     return view('home');
-// });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', function () {
+    return view('home');
+});
 
 Route::get('/success', function () {
     return view('loginSuccess');
 });
 
-Route::get('/MenShoes', [productController::class, 'menShoes']);
+Route::get('/MenShoes', function () {
+    return view('MenShoes');
+});
 
-Route::get('/WomenShoes', [productController::class, 'womenShoes']);
+Route::get('/WomenShoes', function () {
+    return view('WomenShoes');
+});
 
-Route::get('/MenClothes', [productController::class, 'menClothes']);
+Route::get('/MenClothes', function () {
+    return view('MenClothes');
+});
 
-Route::get('/WomenClothes', [productController::class, 'womenShoes']);
+Route::get('/WomenClothes', function () {
+    return view('WomenClothes');
+});
 //END shopping and products section
 
-Route::get("/profile" , [UserController::class, 'preLoads']);
-Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
+
 
 
 // START authentication section
@@ -51,14 +58,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin');
 });
 
-
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
+//START personal
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//END personal
 
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
