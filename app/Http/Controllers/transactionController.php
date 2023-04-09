@@ -21,7 +21,16 @@ class transactionController extends Controller
 
     public function getOrderDetails($id)
     {
-       $orders = Transaction::where('user_id', $id) -> get();
-       return view('orderDetails', ['orders' => $orders]);
+        $orders = Transaction::find($id);
+
+        $products = Product::find();
+    }
+
+    public function getOrderedProducts($id)
+    {
+        $products = Product::whereHas('transactions', function ($query) use ($id) {
+            $query->where('transaction_id', $id);
+        })->get();
+        return view('orderDetails', ['products' => $products]);
     }
 }
