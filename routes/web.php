@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\transactionController;
 
 //START routes to home
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
 //END home routes
 
@@ -66,3 +67,5 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //END personal
 
+//testing
+Route::get('/orderdetails/{id}', [transactionController::class,'getOrderDetails']);
