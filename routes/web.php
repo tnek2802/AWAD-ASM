@@ -1,24 +1,23 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\transactionController;
+use App\Http\Controllers\productController;
 
-//START routes to home
-Route::get('/', [HomeController::class, 'index']);
-
-//END home routes
 
 //START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
+// Route::get('/', function () {
+//     // return redirect('/home');
+//     return view('home');
+// });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/success', function () {
     return view('loginSuccess');
@@ -28,35 +27,22 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/MenShoes', [productController::class, 'menShoes']);
 
-Route::get('/MenShoes', function () {
-    return view('MenShoes');
-});
+Route::get('/WomenShoes', [productController::class, 'womenShoes']);
 
-Route::get('/WomenShoes', function () {
-    return view('WomenShoes');
-});
+Route::get('/MenClothes', [productController::class, 'menClothes']);
 
-Route::get('/MenClothes', function () {
-    return view('MenClothes');
-});
+Route::get('/WomenClothes', [productController::class, 'womenShoes']);
 
-Route::get('/WomenClothes', function () {
-    return view('WomenClothes');
-});
+Route::get('/WomenClothes', [productController::class, 'womenShoes']);
+
 //END shopping and products section
 
-// Profile Page
-Route::middleware(['auth'])->group(function () {
-    Route::get("/profile", [UserController::class, 'preLoads']);
-    Route::post('/profile/edit-detail', [UserController::class, 'editDetail'])->name("editDetail");
-    Route::post('/profile/edit-address', [UserController::class, 'editAddress'])->name("editAddress");
-    Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");
-    Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
-});
+Route::get("/profile" , [UserController::class, 'preLoads']);
+Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
+
+
 // START authentication section
 Auth::routes();
 
@@ -86,9 +72,9 @@ Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
-//START personal
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//END personal
 
-//get order details HY WHEN DONE HIS PART CONFIGURE THIS LINKAGE XIA
-Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
