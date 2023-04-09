@@ -2,11 +2,9 @@
 @section('content')
 <html>
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {{-- <div id='header'></div> --}}
+    <link rel='stylesheet' href="{{ url('css/home.css') }}">
 </head>
-<link rel='stylesheet' href="{{ url('css/home.css') }}">
+
 
 <body>
     <h1 class='home-title'>
