@@ -26,5 +26,6 @@ class transactionController extends Controller
             'orders' => $orders,
             'products' => $products,
         ]);
+        // return view('orderDetails');
     }
 }
