@@ -12,12 +12,12 @@ class Product extends Model
     protected $table = 'product';
     
     // Transaction many-to-many relationship with Product
-    public function hasTransaction() {
-        return $this->belongsToMany(Transaction::class);
+    public function Transactions() {
+        return $this->belongsToMany(Transaction::class); 
     }
 
     // Product One-To-One relationship with Size
-    public function hasSize() {
+    public function Size() {
         return $this->hasOne(Size::class);
     }
 }

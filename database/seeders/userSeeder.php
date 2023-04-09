@@ -14,11 +14,11 @@ class userSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 9; $i++) {
+        for($i = 1; $i <= 2; $i++) {
             DB::table('users')->insert([
             [
                 'username' => 'user'.$i,
-                'password' => bcrypt('password'),
+                'password' => bcrypt('user'),
                 'email' => 'user'.$i.'@gmail.com',
                 'role' => 'user',
                 'contact_num' => '012123123'.$i,
