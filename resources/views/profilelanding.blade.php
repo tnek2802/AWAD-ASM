@@ -24,9 +24,6 @@
                                 <a href="/profile">Personal Information</a>
                             </li>
                             <li class="leftlinav">
-                                <a href="/addressbook">Address Book</a>
-                            </li>
-                            <li class="leftlinav">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -42,26 +39,41 @@
                             <h4 class="profileheading">MY DETAILS</h4>
                             <p class="profileparagraph">View and edit your details below</p>
                             <h4 class="profileheading">DETAILS</h4>
-                            <div class="profiledetailbox" data-name="profile-info">
+                            <div class="profiledetailbox">
                                 {{-- Required Login and Value Reading --}}
-                                <div class="profiledetail">{{Auth::guard('web')->user()->username}}</div>
-                                <div class="profiledetail">DOB??</div>
-                                <div class="profiledetail">GENDER??</div>
-                                <div class="profiledetail">{{$userdata->contact_num}}</div>
+                                <div class="profiledetail">
+                                    <span>{{ Auth::guard('web')->user()->username }}</span>
+                                </div>
+                                <div class="profiledetail">
+                                    <span>{{ $user->contact_num }}</span>
+                                </div>
                                 <button type="button" class=btnOn data-name="p-1">
+                                    <span>E D I T</span>
+                                </button>
+                            </div>
+                            <h4 class="profileheading">ADDRESS BOOK</h4>
+                            <div class="profiledetailbox">
+                                <div class="profiledetail">
+                                    <span>{{ $user->address }}</span>
+                                </div>
+                                <button type="button" class=btnOn data-name="p-2">
                                     <span>E D I T</span>
                                 </button>
                             </div>
                             <h4 class="profileheading">LOGIN DETAILS</h4>
                             <div class="profiledetailbox">
                                 <h5 class="profileheading">EMAIL</h5>
-                                <div class="profiledetail" data-name="profile-email">{{$userdata->email}}</div>
-                                <button type="button" class=btnOn data-name="p-2">
+                                <div class="profiledetail">
+                                    <span>{{ $user->email }}</span>
+                                </div>
+                                <button type="button" class=btnOn data-name="p-3">
                                     <span>E D I T</span>
                                 </button>
                                 <h5 class="profileheading"><br>PASSWORD</h5>
-                                <div class="profiledetail" data-name="profile-password">{{$userdata->password}}</div>
-                                <button type="button" class=btnOn data-name="p-3">
+                                <div class="profiledetail" data-name="profile-password">
+                                    <span>{{ $user->password }}</span>
+                                </div>
+                                <button type="button" class=btnOn data-name="p-4">
                                     <span>E D I T</span>
                                 </button>
                             </div>
@@ -78,33 +90,15 @@
                     <div class="profile">
                         <div class="content">
                             <h1>Edit Your Profile</h1>
-                            <form action="">
+                            <form method="POST" action="{{ route('editDetail', $user) }}">
+                                @csrf
                                 <fieldset class="name">
                                     <div class="grid-35">
                                         <label for="profile-name">Name</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="detailName" required type="text" class="detail-field-input"
-                                            id="profile-name" maxlength="100">
-                                    </div>
-                                </fieldset>
-                                <fieldset class="profile-dob">
-                                    <div class="grid-35">
-                                        <label for="profile-dob">Date Of Birth</label>
-                                    </div>
-                                    <div class="grid-65">
-                                        <input name="detailDOB" type="date" class="detail-field-input" id="profile-dob">
-                                    </div>
-                                </fieldset>
-                                <fieldset class="profile-gender">
-                                    <div class="grid-35">
-                                        <label for="profile-gender">Gender</label>
-                                    </div>
-                                    <div class="grid-65">
-                                        <select>
-                                            <option value="MALE">MALE</option>
-                                            <option value="FEMALE">FEMALE</option>
-                                        </select>
+                                        <input name="usernamechg" required type="text" class="detail-field-input"
+                                            maxlength="100" value="{{ $user->username }}">
                                     </div>
                                 </fieldset>
                                 <fieldset>
@@ -112,13 +106,42 @@
                                         <label for="profile-contact">Contact</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="detailContact" type="number" class="detail-field-input"
-                                            id="profile-contact">
+                                        <input name="contactchg" type="number" class="detail-field-input"
+                                            value="{{ $user->contact_num }}">
                                     </div>
                                 </fieldset>
                                 <div id="wrap">
-                                    <a href="#" class="btnSave">Save</a>
-                                    <a href="#" class="btnOff">Cancel</a>
+                                    <button class="btnSave" type="submit"
+                                        onclick="confirm('Are you sure you want to save changes?')">Save</button>
+                                    <button class="btnOff">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- EDIT ADDRESS --}}
+            <div class="preview" data-target="p-2">
+                <div class="wrapper">
+                    <div class="profile">
+                        <div class="content">
+                            <h1>Edit Your Address</h1>
+                            {{-- {{ route('editEmail',auth()->id()) }} --}}
+                            <form method="POST" action="{{ route('editAddress', $user) }}">
+                                @csrf
+                                <fieldset class="address">
+                                    <div class="grid-35">
+                                        <label for="address">Address</label>
+                                    </div>
+                                    <div class="grid-65">
+                                        <textarea name="addresschg" required type="text" class="detail-field-input" cols="30" rows="auto"
+                                            tabindex="3">{{ $user->address }}</textarea>
+                                    </div>
+                                </fieldset>
+                                <div id="wrap">
+                                    <button class="btnSave" type="submit"
+                                        onclick="confirm('Are you sure you want to save changes?')">Save</button>
+                                    <button class="btnOff">Cancel</button>
                                 </div>
                             </form>
                         </div>
@@ -126,24 +149,27 @@
                 </div>
             </div>
             {{-- EDIT EMAIL --}}
-            <div class="preview" data-target="p-2">
+            <div class="preview" data-target="p-3">
                 <div class="wrapper">
                     <div class="profile">
                         <div class="content">
                             <h1>Edit Your Email</h1>
-                            <form action="">
+                            {{-- {{ route('editEmail',auth()->id()) }} --}}
+                            <form method="POST" action="{{ route('editEmail', $user) }}">
+                                @csrf
                                 <fieldset class="email">
                                     <div class="grid-35">
-                                        <label for="profile-password-old">Email</label>
+                                        <label for="email">Email</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="detailEmail" required type="email" class="detail-field-input"
-                                            id="profile-email" maxlength="100">
+                                        <input name="emailchg" required type="email" class="detail-field-input"
+                                            value="{{ $user->email }}" maxlength="50">
                                     </div>
                                 </fieldset>
                                 <div id="wrap">
-                                    <a href="#" class="btnSave">Save</a>
-                                    <a href="#" class="btnOff">Cancel</a>
+                                    <button class="btnSave" type="submit"
+                                        onclick="confirm('Are you sure you want to save changes?')">Save</button>
+                                    <button class="btnOff">Cancel</button>
                                 </div>
                             </form>
                         </div>
@@ -151,19 +177,20 @@
                 </div>
             </div>
             {{-- EDIT PASSWORD --}}
-            <div class="preview" data-target="p-3">
+            <div class="preview" data-target="p-4">
                 <div class="wrapper">
                     <div class="profile">
                         <div class="content">
                             <h1>Edit Your Password</h1>
-                            <form action="">
+                            <form method="POST" action="{{ route('editPassword', $user) }}">
+                                @csrf
                                 <fieldset class="password">
                                     <div class="grid-35">
                                         <label for="profile-password-old">Old Password</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="oldPassword" required type="text" class="detail-field-input"
-                                            id="profile-name" maxlength="100">
+                                        <input name="oldpassword" required type="text" class="detail-field-input"
+                                            maxlength="100">
                                     </div>
                                 </fieldset>
                                 <fieldset>
@@ -171,22 +198,29 @@
                                         <label for="profile-password-new">New Password</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="newPassword" required type="text" class="detail-field-input"
-                                            id="profile-name" minlength="8">
+                                        <input type="password" name="password" required autocomplete="current-password"
+                                            class="detail-field-input @error('password') is-invalid @enderror">
                                     </div>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </fieldset>
                                 <fieldset>
                                     <div class="grid-35">
                                         <label for="profile-name">Confirm New Password</label>
                                     </div>
                                     <div class="grid-65">
-                                        <input name="profile-password-new-rep" required type="text"
-                                            class="detail-field-input" id="profile-name" maxlength="100">
+                                        <input type="password" name="password_confirmation" required
+                                            autocomplete="current-password"
+                                            class="detail-field-input @error('password') is-invalid @enderror" required
+                                            autocomplete="current-password">
                                     </div>
                                 </fieldset>
                                 <div id="wrap">
-                                    <a href="#" class="btnSave">Save</a>
-                                    <a href="#" class="btnOff">Cancel</a>
+                                    <button class="btnSave" type="submit">Save</button>
+                                    <button class="btnOff">Cancel</button>
                                 </div>
                             </form>
                         </div>
