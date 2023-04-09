@@ -36,6 +36,12 @@ Route::get('/MenClothes', [productController::class, 'menClothes']);
 Route::get('/WomenClothes', [productController::class, 'womenShoes']);
 //END shopping and products section
 
+// START shopping cart
+Route::get('/cart', function () {
+    return view('cart');
+});
+// END shopping cart
+
 Route::get("/profile" , [UserController::class, 'preLoads']);
 Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
