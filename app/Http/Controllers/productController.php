@@ -11,7 +11,7 @@ class productController extends Controller
     // Men Shoes data 
     public function menShoes() {
 
-        $products = Product::where('product_category', 'Clothes')
+        $products = Product::where('product_category', 'Footwear')
                             ->where('product_type', 'Men')
                             ->get();
 
@@ -31,12 +31,12 @@ class productController extends Controller
     // Women Shoes data
     public function womenShoes() {
 
-        $products = Product::where('product_category', 'Clothes')
-                            ->where('product_type', 'Men')
+        $products = Product::where('product_category', 'Footwear')
+                            ->where('product_type', 'Women')
                             ->get();
 
         return view('/WomenShoes', ['products' => $products]);
-    }
+    }   
 
     // Women Clothes data
     public function womenClothes() {
