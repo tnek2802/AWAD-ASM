@@ -13,10 +13,6 @@ a:visited {
     text-decoration: none;
 }
 
-span{
-    text-transform: uppercase;
-}
-
 ul {
     list-style-type: none;
     background-color: white;
@@ -150,6 +146,7 @@ button {
     letter-spacing: 2;
     line-height: 20px;
     text-decoration: underline;
+    text-transform: uppercase;
 }
 
 button:hover {
@@ -165,7 +162,7 @@ button:hover {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background: white;
     display: none;
     align-items: center;
     justify-content: center;
@@ -189,7 +186,6 @@ button:hover {
     padding: 10px 18px;
     font-weight: bold;
     border-radius: 5px;
-    text-decoration: none;
     display: inline-block;
     align-items: center;
 }
@@ -203,7 +199,6 @@ button:hover {
     color: black;
     background-color: white;
     text-decoration: underline;
-    text-transform: uppercase;
     padding: 10px 18px;
     font-weight: 700;
     border-radius: 5px;
@@ -274,7 +269,7 @@ label {
 /*Input Fields Styles
   =========================*/
 
-input, textarea {
+input {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
     font-size: 15px;
