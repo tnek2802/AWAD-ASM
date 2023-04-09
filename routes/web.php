@@ -70,8 +70,15 @@ Route::post("updateProduct/{product_id}", [productController::class,'updateProdu
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
-
-
+//Profile
+// Profile Page
+Route::middleware(['auth'])->group(function () {
+    Route::get("/profile", [UserController::class, 'preLoads']);
+    Route::post('/profile/edit-detail', [UserController::class, 'editDetail'])->name("editDetail");
+    Route::post('/profile/edit-address', [UserController::class, 'editAddress'])->name("editAddress");
+    Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");
+    Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
+});
 
 Auth::routes();
 
