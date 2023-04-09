@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -37,7 +38,8 @@ Route::get('/WomenClothes', function () {
 });
 //END shopping and products section
 
-
+Route::get("/profile" , [UserController::class, 'preLoads']);
+Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
 
 // START authentication section

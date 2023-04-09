@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <div id='header'></div> --}}
 </head>
-<html>
 <link rel='stylesheet' href="{{ url('css/home.css') }}">
 
 <body>
