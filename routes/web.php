@@ -67,5 +67,5 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //END personal
 
-//testing
-Route::get('/orderdetails/{id}', [transactionController::class,'getOrderDetails']);
+//get order details
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);

@@ -7,36 +7,8 @@
     </head>
 
     </html>
-
-    {{-- <div class=test>
-        <h1>hey there here are your orders xd</h1>
-        @foreach ($orders as $order)
-            <div class="card mb-3">
-                <div class="card-header">
-                    Order ID: {{ $order->transaction_id }}
-                </div>
-                <div class="card-body">
-                    @foreach ($order->Products as $product)
-                        <div class="media mb-3">
-                            <img src="{{ $product->image }}" class="mr-3" alt="{{ $product->product_name }}" width="64">
-                            <div class="media-body">
-                                <h5 class="mt-0">{{ $product->product_name }}</h5>
-                                <p>{{ $product->product_description }}</p>
-                                <p>Price: {{ $product->product_price }}</p>
-                                <p>Quantity: {{ $product->pivot->transaction_quantity }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="card-footer">
-                    <strong>Total:</strong> {{ $order->total_amount }}
-                </div>
-            </div>
-        @endforeach
-    </div> --}}
-
     <div class="container">
-        <h1>Here are your orders:</h1>
+        <h1>Order Details</h1>
         @foreach ($orders as $order)
             <div class="card mb-3">
                 <div class="card-header">
@@ -59,6 +31,7 @@
                 </div>
                 <div class="card-footer">
                     <strong>Total:</strong> {{ $order->total_amount }}
+                    <br><strong>Delivery Address:</strong> {{ $order->delivery_address }}
                 </div>
             </div>
         @endforeach
