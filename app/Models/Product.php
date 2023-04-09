@@ -14,7 +14,7 @@ class Product extends Model
     
     // Transaction many-to-many relationship with Product
     public function Transactions() {
-        return $this->belongsToMany(Transaction::class, 'product_transaction', 'transaction_id', 'product_id')->withPivot('transaction_quantity'); 
+        return $this->belongsToMany(Transaction::class); 
     }
 
     // Product One-To-One relationship with Sizes
@@ -26,4 +26,3 @@ class Product extends Model
         return $this->hasOne(ClothesSize::class);
     }
 }
-
