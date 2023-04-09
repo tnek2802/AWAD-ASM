@@ -8,5 +8,23 @@ use App\Models\Transaction; // import transaction
 
 class transactionController extends Controller
 {
-    
+    public function getOrderDetails($id)
+    {
+        $transactions = Transaction::where('user_id', $id)->get();
+        $orders = collect();
+        $products = collect();
+
+        foreach ($transactions as $transaction) {
+            $orders->push($transaction);
+            $product_transaction = $transaction->Products;
+            foreach ($product_transaction as $product) {
+                $product->transaction_id = $transaction->id;
+                $products->push($product);
+            }
+        }
+        return view('orderDetails', [
+            'orders' => $orders,
+            'products' => $products,
+        ]);
+    }
 }
