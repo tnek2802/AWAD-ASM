@@ -7,17 +7,17 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\productController;
 
+
 //START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     // return redirect('/home');
+//     return view('home');
+// });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/success', function () {
     return view('loginSuccess');
@@ -56,7 +56,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 Auth::routes();
