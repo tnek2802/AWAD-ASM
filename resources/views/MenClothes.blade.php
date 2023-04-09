@@ -35,17 +35,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox" id="m1.s"><label for="m1.s">S</label></td>
-                        <td><input type="checkbox" id="m1.m"><label for="m1.m">M</label></td>
-                        <td><input type="checkbox" id="m1.l"><label for="m1.l">L</label></td>
-                        <td><input type="checkbox" id="m1.xl"><label for="m1.xl">XL</label></td>
+                    <form method="POST" action="{{ route('addItem', $product->product_id) }}">
+                        @csrf
+                        <td><input type="radio" name="size" value="S" required>S</td>
+                        <td><input type="radio" name="size" value="M" required>M</td>
+                        <td><input type="radio" name="size" value="L" required>L</td>
+                        <td><input type="radio" name="size" value="XL" required>XL</td>
                     </tr>
                 </tbody>
             </table>
             <div class="buttons">
                 <div class="btn1">
-                    <form method="POST" action="{{ route('addItem', $product->product_id) }}">
-                        @csrf
                         <input type="hidden" name="product_id" value="{{$product->product_id}}">
                         <button type="submit">Submit</button>
                     </form>

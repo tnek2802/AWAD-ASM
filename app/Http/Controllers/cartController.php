@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ClothesSize;
+use App\Models\ShoeSize;
 use Illuminate\Support\Facades\Session;
 
 class cartController extends Controller
@@ -20,46 +22,44 @@ class cartController extends Controller
     public function addItem(Request $request)
     {
         $product_id = $request->input('product_id');
-        
+        $size = $request->input('size');
         $product = Product::find($product_id);
-        
+        dd($product);
         $cart = session()->get('cart');
-
-        // dd($cart);
+        
         if (!$cart) {
             $cart = [
                 $product_id => [
                     "product_name" => $product->product_name,
                     "quantity" => 1,
-                    "product_price" => $product->product_price
+                    "product_price" => $product->product_price,
+                    "size" => $size,
                 ]
             ];
             
             session()->put('cart', $cart);
-            session()->flash('success', 'Product added to cart successfully!');
-            return redirect()->back();
+            dd($cart);
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
 
-        if (isset($cart[$product_id])) {
-            $cart[$product_id]['quantity']++;
+        if (isset($cart[$product_id][$size])) {
+            $cart[$product_id][$size]['quantity']++;
 
             session()->put('cart', $cart);
-            session()->flash('success', 'Product added to cart successfully!');
-            return redirect()->back();
+            dd($cart);
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
 
         $cart[$product_id] = [
-            "name" => $product->name,
+            "product_name" => $product->name,
             "quantity" => 1,
-            "price" => $product->price
+            "product_price" => $product->price,
+            "size" => $size,
         ];
 
         session()->put('cart', $cart);
-        session()->flash('success', 'Product added to cart successfully!');
-
-        dd(session('success'));
-
-        return redirect()->back();
+        dd($cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
     // Remove item from cart
