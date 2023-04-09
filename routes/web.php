@@ -23,6 +23,10 @@ Route::get('/success', function () {
     return view('loginSuccess');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 Route::get('/MenShoes', [productController::class, 'menShoes']);
 
 Route::get('/WomenShoes', [productController::class, 'womenShoes']);
