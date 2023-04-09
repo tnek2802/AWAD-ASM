@@ -10,6 +10,7 @@ class Product extends Model
     protected $table = 'product';
 
     use HasFactory;
+    // public $timestamps = false;
     protected $primaryKey = 'product_id';
     
     // Transaction many-to-many relationship with Product
