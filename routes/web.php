@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\transactionController;
 
 
 //START shopping and products section
@@ -16,7 +17,7 @@ Route::get('/shoppingPage', function () {
 // Route::get('/', function () {
 //     // return redirect('/home');
 //     return view('home');
-// });
+// }); 
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -34,13 +35,15 @@ Route::get('/WomenShoes', [productController::class, 'womenShoes']);
 
 Route::get('/MenClothes', [productController::class, 'menClothes']);
 
-Route::get('/WomenClothes', [productController::class, 'womenShoes']);
+Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 
 //END shopping and products section
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
 Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
+//GET ORDER DETAILS PAGE
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
 
 // START authentication section
 Auth::routes();
@@ -72,7 +75,6 @@ Route::get('logout', [LoginController::class, 'logout']);
 
 
 
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
