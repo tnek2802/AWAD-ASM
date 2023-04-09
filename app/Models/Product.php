@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'product';
+
     use HasFactory;
     protected $primaryKey = 'product_id';
     protected $table = 'product';
@@ -16,13 +18,12 @@ class Product extends Model
         return $this->belongsToMany(Transaction::class); 
     }
 
-    // Product One-To-One relationship with Size
-    public function Size() {
-        return $this->hasOne(Size::class);
+    // Product One-To-One relationship with Sizes
+    public function ShoeSize() {
+        return $this->hasOne(ShoeSize::class);
     }
 
-    // Get all products
-    public function getAllProducts() {
-        return self::all();
+    public function ClothesSize() {
+        return $this->hasOne(ClothesSize::class);
     }
 }

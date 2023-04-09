@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSizesTable extends Migration
+class CreateShoesizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSizesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sizes', function (Blueprint $table) {
+        Schema::create('shoesizes', function (Blueprint $table) {
             $table->id();
-            $table->integer('S');
-            $table->integer('M');
-            $table->integer('L');
-            $table->integer('XL');
+            $table->integer('US8');
+            $table->integer('US9');
+            $table->integer('US10');
+            $table->integer('US11');
+            $table->integer('US12');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('product_id')->on('product');
             $table->timestamps();
@@ -32,6 +33,6 @@ class CreateSizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sizes');
+        Schema::dropIfExists('shoesizes');
     }
 }
