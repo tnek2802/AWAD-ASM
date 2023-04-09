@@ -10,15 +10,17 @@
 
     <div class=test>
         <h1>hey there here are your orders xd</h1>
-        @foreach ($orders as $order)
-            <p>Order ID: {{ $order->transaction_id }}</p>
-            <p>Order date: {{ $order->transaction_date }}</p>
-            <p>Delivery address: {{ $order->delivery_address }}</p>
-            <p>Total Price: {{ $order->total_amount }}</p>
-        @endforeach
-
         @foreach ($products as $product)
-            <p>Order ID: {{ $product->product_id }}</p>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">{{ $product->product_name }}</div>
+                <div class="card-body">
+                    <img src="{{ $product->image }}" class='img-fluid'>
+                    <p>{{ $product->product_description }}</p>
+                    <p>Price: {{ $product->product_price }}</p>
+                </div>
+            </div>
+        </div>
         @endforeach
     </div>
 @endsection

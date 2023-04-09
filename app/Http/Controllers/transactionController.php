@@ -21,16 +21,25 @@ class transactionController extends Controller
 
     public function getOrderDetails($id)
     {
-        $orders = Transaction::find($id);
+        // $transactions = Transaction::where('user_id', $id)->get();
+        // $products = collect();
+        // foreach ($transactions as $transaction) {
+        //     $products = $products->merge($transaction->Products);
+        // }
+        // return view('orderDetails', ['products' => $products]);
 
-        $products = Product::find();
+        $orders = Transaction::where('user_id', $id)->get();
+        $transactions = collect();
+        $products = collect();
+        foreach ($orders as $order) {
+            $transactions->push($order);
+            $products = $products->merge($order->Products);
+        }
+        return view('orderDetails', [
+            'transactions' => $transactions,
+            'products' => $products,
+        ]);
+
     }
 
-    public function getOrderedProducts($id)
-    {
-        $products = Product::whereHas('transactions', function ($query) use ($id) {
-            $query->where('transaction_id', $id);
-        })->get();
-        return view('orderDetails', ['products' => $products]);
-    }
 }

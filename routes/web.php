@@ -68,5 +68,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 //END personal
 
 //testing
-// Route::get('/orderdetails/{id}', [transactionController::class,'getOrderDetails']);
-Route::get('/orderdetails/{id}', [transactionController::class,'getOrderedProducts']);
+Route::get('/orderdetails/{id}', [transactionController::class,'getOrderDetails']);
