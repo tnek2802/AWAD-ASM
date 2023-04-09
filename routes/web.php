@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
+use App\Http\Controllers\UserController;
 
 //START routes to home
 Route::get('/', [HomeController::class, 'index']);
