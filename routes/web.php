@@ -23,6 +23,7 @@ Route::get('/home', function () {
 Route::get('/login', function () {
     return view('login');
 });
-
-Route::view('/profile' , "profilelanding");
+// custom file . bladephp
+Route::view('/profile' , "profile.profilelanding");
 Route::view('/edit-profile' , "editprofile");
+Route::view('/addressbook', "profile.addressbook");

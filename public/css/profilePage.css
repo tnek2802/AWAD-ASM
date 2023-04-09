@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+a,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
 ul {
     list-style-type: none;
     background-color: white;
@@ -64,7 +70,7 @@ div {
 }
 
 /* FONT */
-h4{
+h4 {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 0.66em;
@@ -72,18 +78,21 @@ h4{
     margin-inline-end: 0px;
     font-weight: bold;
     font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
-h5{
+h5 {
     font-weight: bold;
     font-size: 18px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 .profileparagraph {
     font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 /*LEFT BOX NAV*/
@@ -93,7 +102,8 @@ h5{
     padding: 17px 15px;
     text-decoration: none;
     flex-direction: row;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 /*RIGHT BOX CONTENT*/
@@ -108,10 +118,18 @@ h5{
     justify-content: center;
 }
 
+.profiledetailbox {
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
 .profiledetail {
     font-size: 14px;
     margin-top: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 button {
@@ -137,4 +155,210 @@ button:hover {
     color: white;
     font-weight: 700;
     text-decoration: none;
+}
+
+/* PROFILE POP UP */
+.profile-pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.profile-pop .preview {
+    display: none;
+}
+
+.profile-pop .preview.active {
+    display: inline-block;
+}
+
+.profile-pop .preview a {
+    margin: 20px;
+    font-size: 15px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    color: white;
+    background-color: black;
+    padding: 10px 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    align-items: center;
+}
+
+.profile-pop .preview a:hover{
+    margin: 20px;
+    font-size: 15px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    color: black;
+    background-color: white;
+    text-decoration: underline;
+    padding: 10px 18px;
+    font-weight: 700;
+    border-radius: 5px;
+
+}
+
+.detail-field {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    /* min-height: calc(50px + 30px); */
+}
+
+.detail-field-input {
+    border-bottom: none;
+    /* changing color apply? */
+    box-shadow: 0 2px 0 0 #0a5;
+}
+
+.profile,
+.content {
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.profile {
+    position: absolute;
+    top: 100px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    min-height: 100%;
+    height: auto;
+    width: 75%;
+    margin: 20px auto;
+    margin-bottom: 100px;
+    background-color: #fff;
+    border-top: 5px solid black;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2.5px 5px #f7f7f7;
+}
+
+.content {
+    /* position: absolute; */
+    min-height: 100%;
+    height: 100%;
+    width: 95%;
+    margin: 2.5% auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /*border: 1px solid #eee;*/
+    /*background-color: yellow;*/
+    overflow: hidden;
+}
+
+label {
+    color: black;
+    line-height: 2.1em;
+    margin-left: 10px;
+}
+
+#wrap {
+    text-align: center;
+}
+
+/*Input Fields Styles
+  =========================*/
+
+input {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-size: 15px;
+    color: #333;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 0 1px #39cb58;
+    padding: 5px;
+    width: 75%;
+    margin: 5px auto;
+    border: 0;
+    border-radius: 2.5px;
+    outline: 0;
+    transition: 0.3s ease;
+}
+
+input:hover {
+    box-shadow: 0 0 0 1px #39cb58;
+    background-color: #fff;
+}
+
+.grid-35 {
+    width: 35%;
+    float: left;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+}
+.grid-65 {
+    position: relative;
+    width: 65%;
+    float: right;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+/* #CLEARFIX HACK
+  =========================*/
+.clear:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/* Edit View
+  ======================*/
+.content h1 {
+    text-align: center;
+    color: black;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 0.66em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+select {
+    border-radius: 2.5px;
+    outline: 0;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-size: 15px;
+    color: #333;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 0 1px #39cb58;
+    padding: 5px;
+    width: 75%;
+    margin: 5px auto;
+    border: 0;
+    transition: 0.3s ease;
+}
+
+select option {
+    padding: 10px;
+}
+
+fieldset {
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+fieldset:last-child {
+    border: none;
 }
