@@ -16,6 +16,12 @@ class CartMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+
+        if (!$request->session()->has('cart')) {
+            $cart = [];
+            $request->session()->put('cart', $cart);
+        }
+        
         return $next($request);
     }
 }

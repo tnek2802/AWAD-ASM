@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\productController;
 
@@ -39,7 +40,9 @@ Route::get('/WomenClothes', [productController::class, 'womenShoes']);
 // START shopping cart
 Route::get('/cart', function () {
     return view('cart');
-});
+});   
+
+Route::post('/cart', [cartController::class, 'addItem'])->name('addItem');
 // END shopping cart
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
