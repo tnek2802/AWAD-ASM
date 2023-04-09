@@ -19,7 +19,7 @@ class CreateTransactionTable extends Migration
             $table->string('delivery_address', 255);
             $table->double('total_amount');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
