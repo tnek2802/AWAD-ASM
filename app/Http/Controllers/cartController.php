@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ClothesSize;
 use App\Models\ShoeSize;
-use Illuminate\Support\Facades\Session;
 
 class cartController extends Controller
 {
@@ -32,12 +31,10 @@ class cartController extends Controller
             $stock = ShoeSize::where('product_id', $product_id)->value($size);
 
         $cart = session()->get('cart');
-
+        // dd($cart);
         // FIRST CONDITION -> Cart session not set
         if (!$cart) {
-
             if ($stock <= 0) {
-                dd('OUT OF STOCK! 1');
                 return redirect()->back()->with('failure', 'Product is out of stock!');
             }
 
@@ -52,44 +49,40 @@ class cartController extends Controller
             ];
 
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            session()->flash('status', 'Product added to cart successfully!');
+            return redirect()->back();
         }
 
         // SECOND CONDITION -> Cart & Product alrdy added 
         if (isset($cart[$productKey])) {
-            
-            $cart[$productKey]['quantity']++; 
 
-            if ($stock < $cart[$productKey]['quantity']) { 
+            $cart[$productKey]['quantity']++;
+
+            if ($stock < $cart[$productKey]['quantity']) {
                 return redirect()->back()->with('failure', 'Product is out of stock!');
             }
 
             session()->put('cart', $cart);
-            // dd($cart);
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            session()->flash('status', 'Product added to cart successfully!');
+            return redirect()->back();
         }
 
         // THIRD CONDITION -> Cart existed but Product not added yet
-        else {
-
             if ($stock <= 0) {
-                dd('OUT OF STOCK! 3');
-                return redirect()->back()->with('failure', 'Product is out of stock!');
+                return redirect()->back()->with('status', 'Product is out of stock!');
             }
 
             $cart[$productKey] = [
                 "product_id" => $product->product_id,
-                "product_name" => $product->name,
+                "product_name" => $product->product_name,
                 "quantity" => 1,
-                "product_price" => $product->price,
+                "product_price" => $product->product_price,
                 "size" => $size,
             ];
-            
-        }
 
         session()->put('cart', $cart);
-        dd($cart);
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        session()->flash('status', 'Product added to cart successfully!');
+        return redirect()->back();
     }
 
     // Remove item from cart

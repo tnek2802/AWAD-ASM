@@ -8,18 +8,28 @@
 
 <body>
     <section class="section2">
-            <div class="product">
-                @foreach ($products as $product)
-                <div class="card" data-name="{{$product->product_name}}">
-                    <div class="img"><img src="{{ $product->image }}"></div>
-                    <div class="title"> {{$product->product_name}} </div>
-                    <div class="desc">{{$product->product_description}}</div>
-                    <div class="box">
-                        <div class="price">RM {{$product->product_price}}</div>
-                    </div>
-                </div>
-                @endforeach
+        <div class="product">
+            @if (session()->has('status'))
+            <div class="alert alert-success">
+                Yes
             </div>
+            @endif
+            @if (!session()->has('status'))
+            <div class="alert alert-success">
+                NO
+            </div>
+            @endif
+            @foreach ($products as $product)
+            <div class="card" data-name="{{$product->product_name}}">
+                <div class="img"><img src="{{ $product->image }}"></div>
+                <div class="title"> {{$product->product_name}} </div>
+                <div class="desc">{{$product->product_description}}</div>
+                <div class="box">
+                    <div class="price">RM {{$product->product_price}}</div>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </section>
 
 
@@ -35,19 +45,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <form method="POST" action="{{ route('addItem', $product->product_id) }}">
-                        @csrf
-                        <td><input type="radio" name="size" value="S" required>S</td>
-                        <td><input type="radio" name="size" value="M" required>M</td>
-                        <td><input type="radio" name="size" value="L" required>L</td>
-                        <td><input type="radio" name="size" value="XL" required>XL</td>
+                        <form method="POST" action="{{ route('addItem', $product->product_id) }}">
+                            @csrf
+                            <td><input type="radio" name="size" value="S" required>S</td>
+                            <td><input type="radio" name="size" value="M" required>M</td>
+                            <td><input type="radio" name="size" value="L" required>L</td>
+                            <td><input type="radio" name="size" value="XL" required>XL</td>
                     </tr>
                 </tbody>
             </table>
             <div class="buttons">
                 <div class="btn1">
-                        <input type="hidden" name="product_id" value="{{$product->product_id}}">
-                        <button type="submit">Submit</button>
+                    <input type="hidden" name="product_id" value="{{$product->product_id}}">
+                    <button type="submit">Submit</button>
                     </form>
                 </div>
                 <div class="btn2">
