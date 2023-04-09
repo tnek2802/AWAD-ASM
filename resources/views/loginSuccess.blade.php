@@ -6,11 +6,9 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
-                        You must be the priviledged administrator of this site!
-                        
+                        Login Success!
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
 @endsection
