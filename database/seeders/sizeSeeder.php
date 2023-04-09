@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Size;
+use App\Models\ShoeSize;
+use App\Models\ClothesSize;
 
 class sizeSeeder extends Seeder
 {
@@ -14,6 +15,16 @@ class sizeSeeder extends Seeder
      */
     public function run()
     {
-        Size::factory()->count(8)->create();
+        for ($i = 1; $i <= 16; $i++) {
+            ClothesSize::factory()->count(1)->create([
+                'product_id' => $i,
+            ]);
+        }
+
+        for ($i = 17; $i <= 32; $i++) {
+            ShoeSize::factory()->count(1)->create([
+                'product_id' => $i,
+            ]);
+        }
     }
 }

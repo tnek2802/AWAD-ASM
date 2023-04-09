@@ -1,16 +1,19 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\transactionController;
+
+//START routes to home
+Route::get('/', [HomeController::class, 'index']);
+
+//END home routes
 
 //START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
-});
-Route::get('/', function () {
-    return view('home');
 });
 
 Route::get('/home', function () {
@@ -19,6 +22,14 @@ Route::get('/home', function () {
 
 Route::get('/success', function () {
     return view('loginSuccess');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 Route::get('/MenShoes', function () {
@@ -57,13 +68,17 @@ Route::post('/login/admin/user', [LoginController::class, 'adminLogin']);
 
 Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin');
-});
-
+// Route::group(['middleware' => 'auth:admin'], function () {
+//     Route::view('/admin', 'admin');
+// });
 
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//START personal
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//END personal
+
+//get order details HY WHEN DONE HIS PART CONFIGURE THIS LINKAGE XIA
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
