@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'product_id';
     // Transaction many-to-many relationship with Product
     public function hasTransaction() {
         return $this->belongsToMany(Transaction::class);
