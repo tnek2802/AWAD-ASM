@@ -36,6 +36,10 @@ body {
       margin: 0;
 }
 
+.trending-wrapper {
+    padding: 50px;
+    align-items: center;
+}
 
 .company-background-wrapper {
     margin-top: 100px;

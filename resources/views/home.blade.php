@@ -25,7 +25,22 @@
     </div>
 
     <div class='trending-wrapper'>
-        <div id='trending'></div>
+        <div class="trending">
+            <div class="row">
+                @foreach ($products as $product)
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">{{ $product->product_name }}</div>
+                        <div class="card-body">
+                            <img src="public/images/1.png" >
+                            <p>{{ $product->product_description }}</p>
+                            <p>Price: {{ $product->product_price }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 
     <div class='company-background-wrapper'>

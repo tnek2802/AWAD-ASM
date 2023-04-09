@@ -22,15 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    // public function index()
+    // {
+    //     return view('home');
+    // }
+
     public function index()
     {
-        return view('home');
-    }
-
-    public function trendingProducts()
-    {
         $products = Product::inRandomOrder()->limit(4)->get();
-        return $products;
+        return view('home', ['products' => $products]);
     }
 
 
