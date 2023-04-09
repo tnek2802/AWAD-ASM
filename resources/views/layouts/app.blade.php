@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ __('Abibas') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,15 +21,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('/css/topnav.css') }}">
+
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -43,47 +43,42 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <div class="topnav">
+                                    <div class="logo">
+                                        <a href="{{ url('/') }}">
+                                            {{ __('Abibas') }}
+                                        </a>
+                                    </div>
+                                    <a class="nav-link" href='/Cart'>{{ __('Cart') }}</a>
                                     <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                                
                             @endif
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
+                                </div>
                         @else
                             <ul class="navbar-nav ms-auto">
                                 <!-- Authentication Links -->
                                 @if (Route::has('logout'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
-                                    </li>
+                                    <div class="topnav">
+                                    <div class="logo">
+                                        <a href="{{ url('/') }}">
+                                            {{ __('Abibas') }}
+                                        </a>
+                                    </div>
+                                    <a class="nav-link" href='/Cart'>{{ __('Cart') }}</a>
+                                    <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
+                                    <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
+                                    <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
+                                    <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                 @endif
 
                                 <li class="nav-item dropdown">
@@ -93,10 +88,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
                                             {{ __('Logout') }}
                                         </a>
 
@@ -106,16 +102,16 @@
                                         </form>
                                     </div>
                                 </li>
-                            </ul>
-                        @endguest
-                    </ul>
-                </div>
+                    </div>
+                @endguest
+                </ul>
             </div>
-        </nav>
+    </div>
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <main class="py-4">
+        @yield('content')
+    </main>
     </div>
 </body>
 
