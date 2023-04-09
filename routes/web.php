@@ -67,5 +67,5 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //END personal
 
-//get order details
+//get order details HY WHEN DONE HIS PART CONFIGURE THIS LINKAGE XIA
 Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
