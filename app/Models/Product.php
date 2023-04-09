@@ -10,7 +10,9 @@ class Product extends Model
     protected $table = 'product';
 
     use HasFactory;
-
+    protected $primaryKey = 'product_id';
+    protected $table = 'product';
+    
     // Transaction many-to-many relationship with Product
     public function Transactions() {
         return $this->belongsToMany(Transaction::class); 

@@ -2,11 +2,9 @@
 @section('content')
 <html>
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {{-- <div id='header'></div> --}}
+    <link rel='stylesheet' href="{{ url('css/home.css') }}">
 </head>
-<link rel='stylesheet' href="{{ url('css/home.css') }}">
+
 
 <body>
     <h1 class='home-title'>
@@ -24,7 +22,23 @@
     </div>
 
     <div class='trending-wrapper'>
-        <div id='trending'></div>
+        <div class="trending">
+            <h1 class='trending-title'>TRENDING PRODUCTS</h1>
+            <div class="row">
+                @foreach ($products as $product)
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">{{ $product->product_name }}</div>
+                        <div class="card-body">
+                            <img src="{{ $product->image }}" class='img-fluid'>
+                            <p>{{ $product->product_description }}</p>
+                            <p>Price: {{ $product->product_price }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 
     <div class='company-background-wrapper'>
@@ -50,5 +64,6 @@
 
 
 <script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
 {{-- have to install react, reactstrap and react-slick --}}
