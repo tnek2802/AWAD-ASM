@@ -29,7 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     //it redirects to here when login success
-    protected $redirectTo = '/';
+    protected $redirectTo = '/success';
     /**
      * Create a new controller instance.
      *

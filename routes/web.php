@@ -12,6 +12,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/success', function () {
+    return view('loginSuccess');
+});
+
 Route::get('/MenShoes', function () {
     return view('MenShoes');
 });

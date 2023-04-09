@@ -57,22 +57,39 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
                         @else
+                        <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                            @if (Route::has('logout'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
+                                </li>
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    Hi, {{ Auth::guard('web')->user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -81,6 +98,7 @@
                                     </form>
                                 </div>
                             </li>
+                        </ul>
                         @endguest
                     </ul>
                 </div>

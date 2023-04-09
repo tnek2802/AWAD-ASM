@@ -1,5 +1,6 @@
-@extends('layouts.auth')
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
+<html>
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,6 @@
 <html>
 <link rel='stylesheet' href="{{ url('css/home.css') }}">
 
-@section('content')
 <body>
     <h1 class='home-title'>
         WELCOME TO ABIBAS, THE HOUSE OF CLASSICS.
@@ -45,6 +45,7 @@
     </div>
 
 </body>
+</html>
 
 @endsection
 
