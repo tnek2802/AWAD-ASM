@@ -14,11 +14,13 @@ class CreateSizesTable extends Migration
     public function up()
     {
         Schema::create('sizes', function (Blueprint $table) {
-            $table->bigIncrements('product_id');
+            $table->id();
             $table->integer('S');
             $table->integer('M');
             $table->integer('L');
             $table->integer('XL');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('product_id')->on('product');
             $table->timestamps();
         });
     }

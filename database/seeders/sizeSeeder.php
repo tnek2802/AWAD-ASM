@@ -14,6 +14,10 @@ class sizeSeeder extends Seeder
      */
     public function run()
     {
-        Size::factory()->count(32)->create();
+        for ($i = 1; $i <= 32; $i++) {
+            Size::factory()->count(1)->create([
+                'product_id' => $i,
+            ]);
+        }
     }
 }
