@@ -41,6 +41,19 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
@@ -79,7 +92,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href='#'>{{ __(' Profile') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
