@@ -35,8 +35,6 @@ Route::get('/MenClothes', [productController::class, 'menClothes']);
 
 Route::get('/WomenClothes', [productController::class, 'womenShoes']);
 
-Route::get('/WomenClothes', [productController::class, 'womenShoes']);
-
 //END shopping and products section
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
@@ -57,7 +55,16 @@ Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 // Route::group(['middleware' => 'auth:admin'], function () {
 //     Route::view('/admin', 'admin');
 // });
+// Admin Section
+Route::get('/admin', [productController::class, 'adminProductList']);
 
+// Route::get('/addProduct', [productController::class, 'addProduct']);
+
+Route::view("addProduct", "addProduct");
+Route::post("addProduct",[productController::class, 'addProduct']);
+Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct']);
+Route::get("updateProduct/{product_id}", [productController::class,'showProduct']);
+Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
