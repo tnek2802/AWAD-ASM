@@ -20,4 +20,9 @@ class Product extends Model
     public function Size() {
         return $this->hasOne(Size::class);
     }
+
+    // Get all products
+    public function getAllProducts() {
+        return self::all();
+    }
 }
