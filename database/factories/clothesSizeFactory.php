@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class sizeFactory extends Factory
+class clothesSizeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,7 @@ class sizeFactory extends Factory
             'M' => random_int(0, 100),
             'L' => random_int(0, 100),
             'XL' => random_int(0, 100),
+            'product_id' => $this->sequence(1),
         ];
     }
 }

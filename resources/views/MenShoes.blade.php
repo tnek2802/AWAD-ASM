@@ -8,15 +8,17 @@
 
 <section class="section2">
     <div class="product">
-
+        @foreach ($products as $product)
         <div class="card" data-name="p-1">
             <div class="img"><img src="{{url('/images/1.png')}}"></div>
-            <div class="title">New Balance 574</div>
-            <div class="desc">Grade-School Shoes | Reflection 073</div>
+            <div class="title"> {{$product->product_name}} </div>
+            <div class="desc">{{$product->product_description}}</div>
             <div class="box">
-                <div class="price">RM 379.00</div>
+                <div class="price">RM {{$product->product_price}}</div>
             </div>
         </div>
+        @endforeach
+        <!--
         <div class="card" data-name="p-2">
             <div class="img"><img src="{{url('/images/2.png')}}"></div>
             <div class="title">Nike E-Series</div>
@@ -73,7 +75,7 @@
                 <div class="price">RM 425.00</div>
             </div>
         </div>
-
+-->
     </div>
 </section>
 

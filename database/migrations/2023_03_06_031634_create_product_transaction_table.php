@@ -14,8 +14,8 @@ class CreateProductTransactionTable extends Migration
     public function up()
     {
         Schema::create('product_transaction', function (Blueprint $table) {
-            $table->integer('product_id');
             $table->integer('transaction_id');
+            $table->integer('product_id');
             $table->integer('transaction_quantity');
         });
     }

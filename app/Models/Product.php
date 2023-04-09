@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    protected $table = 'product';
 
+    use HasFactory;
+    protected $primaryKey = 'product_id';
+    
     // Transaction many-to-many relationship with Product
-    public function hasTransaction() {
-        return $this->belongsToMany(Transaction::class);
+    public function Transactions() {
+        return $this->belongsToMany(Transaction::class); 
     }
 
-    // Product One-To-One relationship with Size
-    public function hasSize() {
-        return $this->hasOne(Size::class);
+    // Product One-To-One relationship with Sizes
+    public function ShoeSize() {
+        return $this->hasOne(ShoeSize::class);
+    }
+
+    public function ClothesSize() {
+        return $this->hasOne(ClothesSize::class);
     }
 }
