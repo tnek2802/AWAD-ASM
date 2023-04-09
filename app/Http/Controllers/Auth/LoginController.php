@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -27,17 +30,35 @@ class LoginController extends Controller
      * @var string
      */
     //it redirects to here when login success
-    protected $redirectTo = '/success';
+    // protected $redirectTo = '/success';
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:admin') ->except('logout');
     }
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if($user){
+            Auth::login($user);
+            if(Auth::user()->role() == 'admin')
+            {
+                return redirect('/admin');
+            }
+            if(Auth::user()->role() == 'user')
+            {
+                return redirect('/success');
+            }
+        }
+
+    }
+
     public function showAdminLoginForm()
     {
         return view('auth.login', ['url' => 'admin']);

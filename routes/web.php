@@ -23,6 +23,10 @@ Route::get('/success', function () {
     return view('loginSuccess');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 Route::get('/MenShoes', [productController::class, 'menShoes']);
 
 Route::get('/WomenShoes', [productController::class, 'womenShoes']);
@@ -47,9 +51,9 @@ Route::post('/login/admin/user', [LoginController::class, 'adminLogin']);
 
 Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin');
-});
+// Route::group(['middleware' => 'auth:admin'], function () {
+//     Route::view('/admin', 'admin');
+// });
 
 
 Route::get('logout', [LoginController::class, 'logout']);
