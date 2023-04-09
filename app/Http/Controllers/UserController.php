@@ -12,7 +12,6 @@ class UserController extends Controller
     {
         $profileId = Auth::guard('web')->user()->id;
         $data = User::find($profileId);
-        // dd($user);
         return view('profile.profilelanding', ['userdata'=>$data]);
     }
 
