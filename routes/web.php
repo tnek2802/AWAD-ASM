@@ -55,6 +55,7 @@ Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 // Route::group(['middleware' => 'auth:admin'], function () {
 //     Route::view('/admin', 'admin');
 // });
+
 // Admin Section
 Route::get('/admin', [productController::class, 'adminProductList']);
 
@@ -67,8 +68,6 @@ Route::get("updateProduct/{product_id}", [productController::class,'showProduct'
 Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
-
-
 
 
 
