@@ -54,7 +54,7 @@
                                     <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login1111') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
