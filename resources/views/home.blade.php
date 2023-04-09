@@ -25,6 +25,7 @@
 
     <div class='trending-wrapper'>
         <div class="trending">
+            <h1 class='trending-title'>TRENDING PRODUCTS</h1>
             <div class="row">
                 @foreach ($products as $product)
                 <div class="col-md-3">
