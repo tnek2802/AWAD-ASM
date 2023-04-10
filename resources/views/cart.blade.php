@@ -3,6 +3,9 @@
 
 <div class="container my-5">
     <div class="card shadow">
+        @if(session()->has('status'))
+            <h3 style="background-color:rgba(221,255,221,1.00); text-align:center;"> {{ session('status') }} </h3>
+        @endif
         <div class="card-body" style="display:grid">
             <table>
                 <th>

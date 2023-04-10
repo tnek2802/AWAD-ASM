@@ -43,7 +43,7 @@ class cartController extends Controller
         // FIRST CONDITION -> Cart session not set
         if (!$cart) {
             if ($stock <= 0) {
-                return redirect()->back()->with('status', 'Product is out of stock!');
+                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
             }
 
             $cart = [
@@ -58,7 +58,7 @@ class cartController extends Controller
             ];
 
             session()->put('cart', $cart);
-            return redirect()->back()->with('status', 'Product added to cart successfully!');
+            return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
         }
 
         // SECOND CONDITION -> Cart & Product alrdy added 
@@ -67,15 +67,15 @@ class cartController extends Controller
             $cart[$productKey]['quantity']++;
 
             if ($stock < $cart[$productKey]['quantity']) {
-                return redirect()->back()->with('status', 'Product is out of stock!');
+                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
             }
 
-            return redirect()->back()->with('status', 'Product added to cart successfully!');
+            return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
         }
 
         // THIRD CONDITION -> Cart existed but Product not added yet
             if ($stock <= 0) {
-                return redirect()->back()->with('status', 'Product is out of stock!');
+                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
             }
 
             $cart[$productKey] = [
@@ -88,7 +88,7 @@ class cartController extends Controller
             ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('status', 'Product added to cart successfully!');
+        return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
     }
 
     // Remove item from cart
@@ -97,7 +97,7 @@ class cartController extends Controller
         $product_id = $request->input('product_id');
         $size = $request->input('size'); // S M L XL
         $productKey = $product_id . $size;
-
+        $product = Product::find($product_id);
         
         $cart = session()->get('cart');
 
@@ -106,7 +106,7 @@ class cartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('status', 'Product removed from cart successfully!');
+        return redirect()->back()->with('status', "{$product->product_name} removed from cart successfully!");
     }   
 
     // Purchase function
