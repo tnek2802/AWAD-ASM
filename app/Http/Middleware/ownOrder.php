@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ownOrder
 {
@@ -16,15 +17,14 @@ class ownOrder
      */
     public function handle(Request $request, Closure $next)
     {
-        //get userid from cartcontroller
-        $user_id = $request->route('userid');
-
-        if ($user_id == auth()->id()) {
-            // Redirect the user to the orderdetails route with the authenticated user's ID
-            return $next($request);
-        } else
-            return redirect('/');
-        // User ID is verified, continue with the request
-
+        // Check if user is authenticated
+        if (Auth::check()) {
+            $authUserId = $request->user()->id;
+            $requestedUserId = $request->route('userid');
+            if ($authUserId == $requestedUserId) {
+                return $next($request);
+            }
+        }
+        return redirect('/');
     }
 }
