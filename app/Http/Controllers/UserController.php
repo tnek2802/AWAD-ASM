@@ -41,12 +41,12 @@ class UserController extends Controller
     public function editDetail(User $user, Request $req)
     {
         $this->validate($req, [
-            'usernamechg' => 'required|unique:users,username',
+            'usernamechg' =>  'required|unique:users,username,'.$req->user()->id,
             'contactchg' => 'required|unique:users,contact_num|min:11|max:14|numeric'
         ], [
                 'usernamechg.unique' => 'The username has has already been registered',
                 'contactchg.unique' => 'The contact number has already been registered',
-                'contactchg.min' => 'The contact number is too Short, include country code',
+                'contactchg.min' => 'The contact number is too short',
                 'contactchg.max' => 'The contact number is too long',
                 'contactchg.numeric' => 'only numbers allowed'
             ]);
@@ -55,7 +55,7 @@ class UserController extends Controller
         $data->username = $req->usernamechg;
         $data->contact_num = $req->contactchg;
         $data->save();
-        return redirect(route('profile'))->with('status', "Details editted successfully");
+        return redirect(route('profile'))->with('status', "Details edited successfully");
     }
 
     public function editAddress(User $user, Request $req)
