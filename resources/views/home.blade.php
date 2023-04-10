@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <img src="{{ $product->image }}" class='img-fluid'>
                             <p>{{ $product->product_description }}</p>
-                            <p>Price: {{ $product->product_price }}</p>
+                            <p>Price: RM {{ $product->product_price }}</p>
                         </div>
                     </div>
                 </div>

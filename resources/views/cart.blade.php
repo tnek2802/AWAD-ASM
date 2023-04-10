@@ -50,7 +50,7 @@
                     </td>
                     <td colspan="2">
                         <div class="col-md-10">
-                            <div>{{$product['product_price']}}</div>
+                            <div>RM {{$product['product_price']}}</div>
                         </div>
                     </td>
                     <td colspan="2">

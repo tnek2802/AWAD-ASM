@@ -9,16 +9,6 @@
 <body>
     <section class="section2">
         <div class="product">
-            @if (session()->has('status'))
-            <div class="alert alert-success">
-                Yes
-            </div>
-            @endif
-            @if (!session()->has('status'))
-            <div class="alert alert-success">
-                NO
-            </div>
-            @endif
             @foreach ($products as $product)
             <div class="card" data-name="{{$product->product_name}}">
                 <div class="img"><img src="{{ $product->image }}"></div>
@@ -57,7 +47,7 @@
             <div class="buttons">
                 <div class="btn1">
                     <input type="hidden" name="product_id" value="{{$product->product_id}}">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Add To Cart</button>
                     </form>
                 </div>
                 <div class="btn2">
@@ -67,7 +57,6 @@
         </div>
         @endforeach
     </div>
-
 
     <script>
         let previewContainer = document.querySelector('.products-preview');
