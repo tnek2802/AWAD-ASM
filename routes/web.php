@@ -37,11 +37,11 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 
 //END shopping and products section
 
-Route::get("/profile" , [UserController::class, 'preLoads']);
-Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
+Route::get("/profile", [UserController::class, 'preLoads']);
+Route::get("/addressbook", [UserController::class, 'profile.addressbook']);
 
 //GET ORDER DETAILS PAGE
-Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
+Route::get('/orderdetails/{userid}', [transactionController::class, 'getOrderDetails']);
 
 // START authentication section
 Auth::routes();
@@ -63,17 +63,21 @@ Route::get('/admin', [productController::class, 'adminProductList']);
 // Route::get('/addProduct', [productController::class, 'addProduct']);
 
 Route::view("addProduct", "addProduct");
-Route::post("addProduct",[productController::class, 'addProduct']);
-Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct']);
-Route::get("updateProduct/{product_id}", [productController::class,'showProduct']);
-Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
+Route::post("addProduct", [productController::class, 'addProduct']);
+Route::get("deleteProduct/{product_id}", [productController::class, 'deleteProduct']);
+Route::get("updateProduct/{product_id}", [productController::class, 'showProduct']);
+Route::post("updateProduct/{product_id}", [productController::class, 'updateProduct']);
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
 //Profile
 // Profile Page
 Route::middleware(['auth'])->group(function () {
-    Route::get("/profile", [UserController::class, 'preLoads']);
+    Route::get("/profile", [UserController::class, 'preLoads'])->name("profile");
+    Route::get("/profile/edit-detail", [UserController::class, 'preLoadsDetail'])->name("viewEditDetail");
+    Route::get("/profile/edit-address", [UserController::class, 'preLoadsAddress'])->name("viewEditAddress");
+    Route::get("/profile/edit-email", [UserController::class, 'preLoadsEmail'])->name("viewEditEmail");
+    Route::get("/profile/edit-password", [UserController::class, 'preLoadsPassword'])->name("viewEditPassword");
     Route::post('/profile/edit-detail', [UserController::class, 'editDetail'])->name("editDetail");
     Route::post('/profile/edit-address', [UserController::class, 'editAddress'])->name("editAddress");
     Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");

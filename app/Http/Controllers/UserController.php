@@ -10,23 +10,46 @@ class UserController extends Controller
 {
     public function preLoads()
     {
-        // $profileId = Auth::guard('web')->user()->id;
-        // $data = User::find($profileId);
-        // return view('profile.profilelanding', ['userdata' => $data]);
         $user = Auth::user();
         return view('profilelanding', compact('user'));
     }
+
+    public function preLoadsDetail()
+    {
+        $user = Auth::user();
+        return view('editProfile', compact('user'));
+    }
+
+    public function preLoadsAddress()
+    {
+        $user = Auth::user();
+        return view('editAddress', compact('user'));
+    }
+
+    public function preLoadsEmail()
+    {
+        $user = Auth::user();
+        return view('editEmail', compact('user'));
+    }
+
+    public function preLoadsPassword()
+    {
+        $user = Auth::user();
+        return view('editPassword', compact('user'));
+    }
+
     public function editDetail(User $user, Request $req)
     {
-        // $this->validate($req, [
-        //     'contactchg' => 'required|unique:users,contact_num',
-        // ]);
+        $this->validate($req, [
+            'username' => 'required|unique:users,username',
+            'contactchg' => 'required|unique:users,contact_num'
+        ]);
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->username = $req->usernamechg;
         $data->contact_num = $req->contactchg;
         $data->save();
-        return redirect('/profile');
+        return back()->with('editDetail', true);
     }
 
     public function editAddress(User $user, Request $req)
