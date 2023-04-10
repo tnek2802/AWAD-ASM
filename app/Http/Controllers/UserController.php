@@ -42,13 +42,13 @@ class UserController extends Controller
     {
         $this->validate($req, [
             'usernamechg' =>  'required|unique:users,username,'.$req->user()->id,
-            'contactchg' => 'required|unique:users,contact_num|min:11|max:14|numeric'
+            'contactchg' => 'required|unique:users,contact_num|min:11|max:14|regex:/^\d+$/'
         ], [
                 'usernamechg.unique' => 'The username has has already been registered',
                 'contactchg.unique' => 'The contact number has already been registered',
                 'contactchg.min' => 'The contact number is too short',
                 'contactchg.max' => 'The contact number is too long',
-                'contactchg.numeric' => 'only numbers allowed'
+                'contactchg.regex' => 'Enter only numbers'
             ]);
         $id = Auth::user()->id;
         $data = User::find($id);
