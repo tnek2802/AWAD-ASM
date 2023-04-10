@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
+use App\Models\Transaction;
 
 //START shopping and products section
 Route::get('/shoppingPage', function () {
@@ -39,16 +40,18 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 //END shopping and products section
 
 // START shopping cart
-Route::get('/cart', [cartController::class, 'index'])->name('cart');   
+Route::get('/cart', [cartController::class, 'index'])->name('cart')->middleware('protectedCart');   
 Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
 Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
+Route::post('/purchase', [cartController::class, 'purchase'])->name('purchase');
+
 // END shopping cart
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
 Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
 //GET ORDER DETAILS PAGE
-Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails']);
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails'])->name('orderdetails');
 
 // START authentication section
 Auth::routes();
