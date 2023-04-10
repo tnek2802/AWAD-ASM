@@ -36,23 +36,21 @@ class LoginController extends Controller
      *
      * @return void
      */
-    
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin') ->except('logout');
+        $this->middleware('guest:admin')->except('logout');
     }
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)->first();
-        if($user){
-            Auth::login($user);
-            if(Auth::user()->role() == 'admin')
-            {
+        if ($user) {
+            Auth::login($user, $request->get('remember'));
+            if (Auth::user()->role() == 'admin') {
                 return redirect('/admin');
             }
-            if(Auth::user()->role() == 'user')
-            {
+            if (Auth::user()->role() == 'user') {
                 return redirect('/success');
             }
         }
@@ -66,12 +64,20 @@ class LoginController extends Controller
     public function adminLogin(Request $request)
     {
         $this->validate($request, [
-        'email' => 'required|email',
-    'password' => 'required|min:6'
-    ]);
-    if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-        return redirect()->intended('/admin');
-    }
-    return back()->withInput($request->only('email', 'remember'));
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+        if (
+            Auth::guard('admin')->attempt(
+                [
+                    'email' => $request->email,
+                    'password' => $request->password
+                ],
+                $request->get('remember')
+            )
+        ) {
+            return redirect()->intended('/admin');
+        }
+        return back()->withInput($request->only('email', 'remember'));
     }
 }

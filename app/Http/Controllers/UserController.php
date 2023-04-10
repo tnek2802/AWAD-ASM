@@ -41,7 +41,7 @@ class UserController extends Controller
     public function editDetail(User $user, Request $req)
     {
         $this->validate($req, [
-            'username' => 'required|unique:users,username',
+            'usernamechg' => 'required|unique:users,username',
             'contactchg' => 'required|unique:users,contact_num'
         ]);
         $id = Auth::user()->id;
@@ -49,7 +49,7 @@ class UserController extends Controller
         $data->username = $req->usernamechg;
         $data->contact_num = $req->contactchg;
         $data->save();
-        return back()->with('editDetail', true);
+        return redirect(route('editDetail'));
     }
 
     public function editAddress(User $user, Request $req)

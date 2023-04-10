@@ -63,7 +63,7 @@
                                     <input name="contactchg" type="text" value="{{ $user->contact_num }}"
                                         class="detail-field-input @error('contactchg') is-invalid @enderror" required
                                         autocomplete="contactchg" autofocus>
-                                    @error('usernamechg')
+                                    @error('contactchg')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

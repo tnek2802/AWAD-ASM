@@ -35,6 +35,7 @@
             <div class="rightcol">
                 <div class="rightbox">
                     <div class="rightboxcontent">
+                        <h4 class="profileheading">HI, {{ $user->username }}</h4>
                         <h4 class="profileheading">MY DETAILS</h4>
                         <p class="profileparagraph">View and edit your details below</p>
                         <h4 class="profileheading">DETAILS</h4>
@@ -76,7 +77,7 @@
                             </a>
                             <h5 class="profileheading"><br>PASSWORD</h5>
                             <div class="profiledetail" data-name="profile-password">
-                                <span>{{ $user->password }}</span>
+                                <span>**********</span>
                             </div>
                             <a href="{{ url('/profile/edit-password') }}">
                                 <button type="button" class=btnOn>
