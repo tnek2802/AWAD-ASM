@@ -16,6 +16,15 @@ class ownOrder
      */
     public function handle(Request $request, Closure $next)
     {
+
+         $user_id = $request->route('userid');
+
+        if ($user_id == auth()->id()) {
+            // Redirect the user to the orderdetails route with the authenticated user's ID
+            return redirect()->route('orderdetails', ['userid' => auth()->id()]);
+        }
+
+        // User ID is verified, continue with the request
         return $next($request);
     }
 }
