@@ -23,6 +23,9 @@
                             <a href="{{ route('profile') }}">Personal Information</a>
                         </li>
                         <li class="leftlinav">
+                            <a href="{{ route('orderdetails', $user) }}">Order Details</a>
+                        </li>
+                        <li class="leftlinav">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

@@ -23,6 +23,9 @@
                             <a href="{{ route('profile')}}">Personal Information</a>
                         </li>
                         <li class="leftlinav">
+                            <a href="{{ route('orderdetails', $user) }}">Order Details</a>
+                        </li>
+                        <li class="leftlinav">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -57,11 +60,11 @@
                             </fieldset>
                             <fieldset>
                                 <div class="grid-35">
-                                    <label for="profile-contact">Contact</label>
+                                    <label for="profile-contact">Contact</label>  
                                 </div>
                                 <div class="grid-65">
                                     <input name="contactchg" type="text" value="{{ $user->contact_num }}"
-                                        class="detail-field-input @error('contactchg') is-invalid @enderror" required
+                                        class="detail-field-input @error('contactchg') is-invalid  @enderror" required
                                         autocomplete="contactchg" autofocus>
                                     @error('contactchg')
                                         <span class="invalid-feedback" role="alert">

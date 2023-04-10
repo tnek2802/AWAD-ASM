@@ -195,8 +195,12 @@ button:hover {
 
 .detail-field-input {
     border-bottom: none;
-    /* changing color apply? */
     box-shadow: 0 2px 0 0 #0a5;
+}
+
+.detail-field-input:invalid {
+    border-bottom: none;
+    box-shadow: 0 2px 0 0 #e32b2b;
 }
 
 label {
@@ -212,7 +216,7 @@ label {
 /*Input Fields Styles
   =========================*/
 
-input {
+input, textarea {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
     font-size: 15px;
@@ -228,7 +232,7 @@ input {
     transition: 0.3s ease;
 }
 
-input:hover {
+input:hover, textarea:hover {
     box-shadow: 0 0 0 1px #39cb58;
     background-color: #fff;
 }
