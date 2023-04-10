@@ -71,7 +71,7 @@
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href='/Cart'>{{ __('Cart') }}</a>
+                                        <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
                                     </li>
                                 @endif
 

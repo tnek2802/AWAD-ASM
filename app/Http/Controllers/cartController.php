@@ -150,10 +150,10 @@ class cartController extends Controller
         }
         // Clear the cart data from the session
         session()->forget('cart');
-        return view('purchase', ['products' => $products, 'totalPrice' => $totalPrice]);
         
-        //redirect to the order summary
-        
+        // Redirect to the order details
+        return redirect()->route('orderDetails', ['id' => $request->user()->id])
+                     ->with(['products' => $products, 'totalPrice' => $totalPrice]);
     }
     
 }

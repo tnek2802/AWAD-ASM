@@ -39,6 +39,7 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 //END shopping and products section
 
 // START shopping cart
+Route::get('/cart', [cartController::class, 'cart']);
 Route::get('/cart', [cartController::class, 'index'])->name('cart');   
 Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
 Route::post('/deleteItem', [cartController::class, 'deleteItem'])->name('deleteItem');
