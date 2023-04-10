@@ -49,7 +49,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        @if ($product->product_category == 'Clothes')
                                         <th colspan="4">Size Selection</th>
+                                        @elseif($product->product_category == 'Footwear')
+                                        <th colspan="5">Size Selection</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
