@@ -80,7 +80,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
 });
 
-
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
