@@ -9,16 +9,6 @@
 <body>
     <section class="section2">
         <div class="product">
-            @if (session()->has('status'))
-            <div class="alert alert-success">
-                session()->get('success')
-            </div>
-            @endif
-            @if (!session()->has('status'))
-            <div class="alert alert-success">   
-                FLASH SESSION NOT WORKING 
-            </div>
-            @endif
             @foreach ($products as $product)
             <div class="card" data-name="{{$product->product_name}}">
                 <div class="img"><img src="{{ $product->image }}"></div>
@@ -67,7 +57,6 @@
         </div>
         @endforeach
     </div>
-
 
     <script>
         let previewContainer = document.querySelector('.products-preview');
