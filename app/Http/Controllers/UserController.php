@@ -48,7 +48,7 @@ class UserController extends Controller
                 'contactchg.unique' => 'The contact number has already been registered',
                 'contactchg.min' => 'The contact number is too short',
                 'contactchg.max' => 'The contact number is too long',
-                'contactchg.regex' => 'Enter only numbers'
+                'contactchg.regex' => 'The contact number must be numbers only'
             ]);
         $id = Auth::user()->id;
         $data = User::find($id);
