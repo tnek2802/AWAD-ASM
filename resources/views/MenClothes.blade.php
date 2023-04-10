@@ -11,12 +11,12 @@
         <div class="product">
             @if (session()->has('status'))
             <div class="alert alert-success">
-                Yes
+                session()->get('success')
             </div>
             @endif
             @if (!session()->has('status'))
-            <div class="alert alert-success">
-                NO
+            <div class="alert alert-success">   
+                FLASH SESSION NOT WORKING 
             </div>
             @endif
             @foreach ($products as $product)
@@ -57,7 +57,7 @@
             <div class="buttons">
                 <div class="btn1">
                     <input type="hidden" name="product_id" value="{{$product->product_id}}">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Add To Cart</button>
                     </form>
                 </div>
                 <div class="btn2">
