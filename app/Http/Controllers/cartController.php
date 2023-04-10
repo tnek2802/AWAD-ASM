@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ClothesSize;
 use App\Models\ShoeSize;
-use Illuminate\Support\Facades\Session;
-
 
 class cartController extends Controller
 {
@@ -45,7 +43,7 @@ class cartController extends Controller
         // FIRST CONDITION -> Cart session not set
         if (!$cart) {
             if ($stock <= 0) {
-                return redirect()->back()->with('failure', 'Product is out of stock!');
+                return redirect()->back()->with('status', 'Product is out of stock!');
             }
 
             $cart = [
@@ -69,10 +67,9 @@ class cartController extends Controller
             $cart[$productKey]['quantity']++;
 
             if ($stock < $cart[$productKey]['quantity']) {
-                return redirect()->back()->with('failure', 'Product is out of stock!');
+                return redirect()->back()->with('status', 'Product is out of stock!');
             }
 
-            session()->put('cart', $cart);
             return redirect()->back()->with('status', 'Product added to cart successfully!');
         }
 
@@ -91,7 +88,6 @@ class cartController extends Controller
             ];
 
         session()->put('cart', $cart);
-        // dd($cart);
         return redirect()->back()->with('status', 'Product added to cart successfully!');
     }
 
@@ -110,10 +106,10 @@ class cartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('success', 'Product removed from cart successfully!');
+        return redirect()->back()->with('status', 'Product removed from cart successfully!');
     }   
 
-    // add to cart page ge function
+    // Purchase function
     public function purchase(Request $request) {
 
         // Retrieve session data 
