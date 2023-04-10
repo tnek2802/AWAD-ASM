@@ -42,18 +42,20 @@ class UserController extends Controller
     {
         $this->validate($req, [
             'usernamechg' => 'required|unique:users,username',
-            'contactchg' => 'required|unique:users,contact_num|min:11|max:14'
+            'contactchg' => 'required|unique:users,contact_num|min:11|max:14|numeric'
         ], [
-                'usernamechg.unique' => 'The Username Has Already Been Taken',
-                'contactchg.unique' => 'The Contact Number Has Already Been Registered',
-                'contactchg.min' => 'The Contact Number Is Too Short, Include Country Code'
+                'usernamechg.unique' => 'The username has has already been registered',
+                'contactchg.unique' => 'The contact number has already been registered',
+                'contactchg.min' => 'The contact number is too Short, include country code',
+                'contactchg.max' => 'The contact number is too long',
+                'contactchg.numeric' => 'only numbers allowed'
             ]);
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->username = $req->usernamechg;
         $data->contact_num = $req->contactchg;
         $data->save();
-        return redirect(route('profile'));
+        return redirect(route('profile'))->with('status', "Details editted successfully");
     }
 
     public function editAddress(User $user, Request $req)
@@ -65,7 +67,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->address = $req->addresschg;
         $data->save();
-        return redirect(route('profile'));
+        return redirect(route('profile'))->with('status', "Address editted successfully!");
     }
 
     public function editEmail(User $user, Request $req)
@@ -73,13 +75,13 @@ class UserController extends Controller
         $this->validate($req, [
             'emailchg' => 'required|unique:users,email|email',
         ], [
-            'emailchg.unique' => 'The Email Has Already Been Taken',
+            'emailchg.unique' => 'The Email has already been registered',
         ]);
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->email = $req->emailchg;
         $data->save();
-        return redirect(route('profile'));
+        return redirect(route('profile'))->with('status', "Email editted successfully!");
     }
     public function editPassword(User $user, Request $req)
     {
@@ -90,6 +92,6 @@ class UserController extends Controller
         $data = User::find($id);
         $data->password = bcrypt($req->password);
         $data->save();
-        return redirect(route('profile'));
+        return redirect(route('profile'))->with('status', "Password editted successfully!");
     }
 }

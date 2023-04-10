@@ -39,7 +39,8 @@
                 <div class="rightbox">
                     <div class="rightboxcontent">
                         <h1>Edit Your Password</h1>
-                        <form method="POST" action="{{ route('editPassword', $user) }}">
+                        <form method="POST" action="{{ route('editPassword', $user) }}"
+                        onsubmit="return confirm('Are you sure you want to save changes?');">
                             @csrf
                             <fieldset>
                                 <div class="grid-35">

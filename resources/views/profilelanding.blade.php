@@ -14,6 +14,9 @@
 </head>
 
     <body>
+        @if(session()->has('status'))
+            <h3 style="background-color:rgba(221,255,221,1.00); text-align:center;"> {{ session('status') }} </h3>
+        @endif
         <div class="mainbox">
             <div class="leftcol">
                 <div class="leftbox">
