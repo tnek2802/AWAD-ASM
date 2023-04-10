@@ -15,6 +15,7 @@ Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
 
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/success', function () {
