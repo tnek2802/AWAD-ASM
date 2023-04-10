@@ -16,14 +16,14 @@
             <div class='carousel' id='carousel'></div>
             <div class='carousel-header'>
                 <p>Unlock your<br>true potential.<br>
-                <a href="/shoppingPage">Shop Now.</a></p>
+                <a href="#shop-now">Shop Now.</a></p>
             </div>
         </div>
     </div>
 
     <div class='trending-wrapper'>
         <div class="trending">
-            <h1 class='trending-title'>TRENDING PRODUCTS</h1>
+            <h1 class='trending-title' id='shop-now'>TRENDING PRODUCTS</h1>
             <div class="row">
                 @foreach ($products as $product)
                 <div class="col-md-3">
