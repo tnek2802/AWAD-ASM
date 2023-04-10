@@ -76,18 +76,25 @@
                             </form>
                         </div>
                     </td>
-                </tr>
+                </tr>   
                 @endforeach
                 @else
+                <tr></tr>
                 <tr>
-                    <td colspan="10">
-                        <div class="col-md-10">
-                            <div style="text-align:center; font-size:18px"> No Item Added in Cart </div>
+                    <td colspan="12">
+                        <div class="col-md-12">
+                            <div style="text-align:center; font-size:18px; margin:70px;padding-left:40px;"> No Item Added in Cart </div>
                         </div>
                     </td>
                 </tr>
                 @endif
-            </table>
+                </table>
+                <div class="bottom-right justify-content-end pr-3 pb-3">
+                    <form method="POST" action="{{ route('purchase') }}">
+                        @csrf
+                        <button type ="submit" class="btn btn-success">Purchase</button>
+                    </form>
+                </div>
         </div>
     </div>
 </div>

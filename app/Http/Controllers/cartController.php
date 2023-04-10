@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ClothesSize;
 use App\Models\ShoeSize;
+use Illuminate\Support\Facades\Session;
+use App\Models\Transaction;
+use Carbon\Carbon;
+use App\Models\User;
 
 class cartController extends Controller
 {
@@ -50,6 +54,7 @@ class cartController extends Controller
                 $productKey => [
                     "product_id" => $product->product_id,
                     "product_name" => $product->product_name,
+                    "product_category" => $product->product_category,
                     "quantity" => 1,
                     "product_price" => $product->product_price,
                     "size" => $size,
@@ -81,6 +86,7 @@ class cartController extends Controller
             $cart[$productKey] = [
                 "product_id" => $product->product_id,
                 "product_name" => $product->product_name,
+                "product_category" => $product->product_category,
                 "quantity" => 1,
                 "product_price" => $product->product_price,
                 "size" => $size,
@@ -113,12 +119,16 @@ class cartController extends Controller
     public function purchase(Request $request) {
 
         // Retrieve session data 
-        $cart = session()->get('cart');
+        $cart = session()->get('cart'); 
 
         // From $cart retrieve all the products + quantity
         $products = [];
         $totalPrice = 0;
-        foreach ($cart as $key => $value) {
+
+        if ($cart == null)
+            return redirect()->back()->with('status', 'Cart is Empty!');
+
+        foreach ($cart as $value) {
                 $product = [
                 'product_id' => $value['product_id'],
                 'product_name' => $value['product_name'],
@@ -144,12 +154,26 @@ class cartController extends Controller
                 $shoeSize->save();
             }
         }
-        // Clear the cart data from the session
+
+        $user = User::find($request->user()->id);
+
+        // Create a new transaction and save it to the database
+        $transaction = new Transaction;
+        $transaction->user_id = $user->id;
+        $transaction->transaction_date = Carbon::now()->toDate();
+        $transaction->delivery_address = $user->address;
+        $transaction->total_amount = $totalPrice;
+        $transaction->save();
+
+        // Attach the products to the transaction
+        foreach ($products as $product) {
+        $transaction->Products()->attach($product['product_id'], ['transaction_quantity' => $product['quantity']]);
+    }
+        // Clear the cart data from the session 
         session()->forget('cart');
-        return view('purchase', ['products' => $products, 'totalPrice' => $totalPrice]);
-        
-        //redirect to the order summary
-        
+                
+        // Redirect to the order details
+        return redirect()->route('orderdetails', ['userid' => $user->id]);
     }
     
 }
