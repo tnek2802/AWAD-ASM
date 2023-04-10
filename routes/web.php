@@ -38,11 +38,9 @@ Route::get('/WomenClothes', [productController::class, 'womenShoes']);
 //END shopping and products section
 
 // START shopping cart
-Route::get('/cart', function () {
-    return view('cart');
-});   
-
-Route::post('/cart', [cartController::class, 'addItem'])->name('addItem');
+Route::get('/cart', [cartController::class, 'index'])->name('cart');   
+Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
+Route::post('/deleteItem', [cartController::class, 'deleteItem'])->name('deleteItem');
 // END shopping cart
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
