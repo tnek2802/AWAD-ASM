@@ -104,11 +104,6 @@
     transition:0.3s;
 }
 
-.products-preview .preview img:hover{
-    transform:scale(1.3);
-	z-index:2;
-}
-
 .products-preview .preview.active{
     display:inline-block;
 }

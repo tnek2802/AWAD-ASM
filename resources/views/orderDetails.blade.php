@@ -30,7 +30,7 @@
                     @endforeach
                 </div>
                 <div class="card-footer">
-                    <strong>Total:</strong> {{ $order->total_amount }}
+                    <strong>Total: RM</strong> {{ $order->total_amount }}
                     <br><strong>Delivery Address:</strong> {{ $order->delivery_address }}
                 </div>
             </div>
