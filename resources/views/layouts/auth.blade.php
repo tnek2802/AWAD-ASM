@@ -45,6 +45,19 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenClothes'>{{ __('Men Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/MenShoes'>{{ __('Men Shoes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenClothes'>{{ __('Women Clothes') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
+                                </li>
+                                <li>
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
@@ -70,11 +83,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
-                                    @can('isUser')
+                                    @if(Auth::check() && Auth::user()->role() == 'user')
                                     <li class="nav-item">
                                         <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
                                     </li>
-                                    @endcan
+                                    @endif
                                 @endif
 
                                 <li class="nav-item dropdown">
@@ -84,9 +97,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        @can('isUser')
+                                        @if(Auth::user()->role() == 'user')
                                         <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
-                                        @endcan
+                                        @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
