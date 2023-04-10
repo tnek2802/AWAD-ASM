@@ -40,13 +40,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin') ->except('logout');
+        // $this->middleware('guest:admin') ->except('logout');
     }
     public function login(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required|min:3',
+            'password' => 'required|min:4',
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -66,10 +66,10 @@ class LoginController extends Controller
         }
     }
 
-    // public function showAdminLoginForm()
-    // {
-    //     return view('auth.login', ['url' => 'admin']);
-    // }
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
     // public function adminLogin(Request $request)
     // {
     //     $this->validate($request, [
