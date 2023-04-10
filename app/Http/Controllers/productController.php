@@ -45,7 +45,7 @@ class productController extends Controller
     {
 
         $products = Product::where('product_category', 'Clothes')
-            ->where('product_type', 'Men')
+            ->where('product_type', 'Women')
             ->get();
 
         return view('/WomenClothes', ['products' => $products]);
