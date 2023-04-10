@@ -11,12 +11,12 @@
         <div class="product">
             @if (session()->has('status'))
             <div class="alert alert-success">
-                Yes
+                session()->get('success')
             </div>
             @endif
             @if (!session()->has('status'))
-            <div class="alert alert-success">
-                NO
+            <div class="alert alert-success">   
+                FLASH SESSION NOT WORKING 
             </div>
             @endif
             @foreach ($products as $product)
