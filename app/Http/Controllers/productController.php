@@ -9,46 +9,50 @@ use App\Models\Product; // import model
 class productController extends Controller
 {
     // Men Shoes data 
-    public function menShoes() {
+    public function menShoes()
+    {
 
         $products = Product::where('product_category', 'Footwear')
-                            ->where('product_type', 'Men')
-                            ->get();
-
+            ->where('product_type', 'Men')
+            ->get();
         return view('/MenShoes', ['products' => $products]);
     }
 
     // Men Clothes data
-    public function menClothes() {
+    public function menClothes()
+    {
 
         $products = Product::where('product_category', 'Clothes')
-                            ->where('product_type', 'Men')
-                            ->get();
+            ->where('product_type', 'Men')
+            ->get();
 
         return view('/MenClothes', ['products' => $products]);
     }
 
     // Women Shoes data
-    public function womenShoes() {
+    public function womenShoes()
+    {
 
         $products = Product::where('product_category', 'Footwear')
-                            ->where('product_type', 'Women')
-                            ->get();
+            ->where('product_type', 'Women')
+            ->get();
 
         return view('/WomenShoes', ['products' => $products]);
-    }   
+    }
 
     // Women Clothes data
-    public function womenClothes() {
+    public function womenClothes()
+    {
 
         $products = Product::where('product_category', 'Clothes')
-                            ->where('product_type', 'Men')
-                            ->get();
+            ->where('product_type', 'Men')
+            ->get();
 
         return view('/WomenClothes', ['products' => $products]);
     }
     //Admin product list functions start here
-    public function adminProductList() {
+    public function adminProductList()
+    {
 
 
         $products = Product::all();
@@ -89,7 +93,7 @@ class productController extends Controller
         $data->product_name = $req->product_name;
         $data->product_price = $req->product_price;
         $data->image = $req->image;
-        $data->save();        
+        $data->save();
         return redirect("admin");
     }
 }
