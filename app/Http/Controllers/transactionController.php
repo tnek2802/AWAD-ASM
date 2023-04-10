@@ -11,7 +11,7 @@ class transactionController extends Controller
 {
     public function getOrderDetails($id)
     {
-        $transactions = Transaction::where('user_id', $id)->orderBy('created_at','desc')->get();
+        $transactions = Transaction::where('user_id', $id)->orderBy('transaction_date','desc')->get();
         $orders = collect();
         $products = collect();
 

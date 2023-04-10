@@ -17,14 +17,14 @@ class ownOrder
     public function handle(Request $request, Closure $next)
     {
         //get userid from cartcontroller
-         $user_id = $request->route('userid');
+        $user_id = $request->route('userid');
 
         if ($user_id == auth()->id()) {
             // Redirect the user to the orderdetails route with the authenticated user's ID
             return $next($request);
-        }
-        return redirect('/');
+        } else
+            return redirect('/');
         // User ID is verified, continue with the request
-        
+
     }
 }
