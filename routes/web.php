@@ -57,7 +57,6 @@ Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
 // Route::group(['middleware' => 'auth:admin'], function () {
 //     Route::view('/admin', 'admin');
 // });
-
 // Admin Section
 Route::get('/admin', [productController::class, 'adminProductList']);
 
@@ -80,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");
     Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
 });
+
 
 Auth::routes();
 
