@@ -18,7 +18,7 @@ class Handler extends ExceptionHandler
         // }
         if ($request->is('user') || $request->is('user/*')) {
             Log::error('Unauthenticated request', ['exception' => $exception]);
-            return redirect()->guest('/login/user');
+            return redirect()->guest('/login');
         }
         return redirect()->guest(route('/'));
     }
