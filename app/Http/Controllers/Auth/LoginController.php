@@ -8,7 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Hash;
 class LoginController extends Controller
 {
     /*
@@ -44,34 +44,41 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
-        if($user){
-            Auth::login($user);
-            if(Auth::user()->role() == 'admin')
-            {
-                return redirect('/admin');
-            }
-            if(Auth::user()->role() == 'user')
-            {
-                return redirect('/success');
-            }
-        }
-
-    }
-
-    public function showAdminLoginForm()
-    {
-        return view('auth.login', ['url' => 'admin']);
-    }
-    public function adminLogin(Request $request)
-    {
         $this->validate($request, [
-        'email' => 'required|email',
-    'password' => 'required|min:6'
-    ]);
-    if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-        return redirect()->intended('/admin');
+            'email' => 'required|email',
+            'password' => 'required|min:3',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                if (Auth::user()->role() == 'admin') {
+                    return redirect('/admin');
+                }
+                if (Auth::user()->role() == 'user') {
+                    return redirect('/success');
+                }
+            } else {
+                return back()->withErrors(['email' => 'Invalid email or password.'])->withInput($request->only('email'));
+            }
+        } else {
+            return back()->withErrors(['email' => 'Invalid email or password.'])->withInput($request->only('email'));
+        }
     }
-    return back()->withInput($request->only('email', 'remember'));
-    }
+
+    // public function showAdminLoginForm()
+    // {
+    //     return view('auth.login', ['url' => 'admin']);
+    // }
+    // public function adminLogin(Request $request)
+    // {
+    //     $this->validate($request, [
+    //     'email' => 'required|email',
+    // 'password' => 'required|min:4'
+    // ]);
+    // if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+    //     return redirect()->intended('/admin');
+    // }
+    // return back()->withInput($request->only('email', 'remember'));
+    // }
 }
