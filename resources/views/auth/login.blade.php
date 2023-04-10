@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session('status'))
+   <h3 style="text-align:center;background-color:rgba(255, 0, 0, 0.2);"> {{session('status')}} </h3>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
