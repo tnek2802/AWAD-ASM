@@ -68,7 +68,11 @@ Route::get('logout', [LoginController::class, 'logout']);
 //Profile
 // Profile Page
 Route::middleware(['auth'])->group(function () {
-    Route::get("/profile", [UserController::class, 'preLoads']);
+    Route::get("/profile", [UserController::class, 'preLoads'])->name("profile");
+    Route::get("/profile/edit-detail", [UserController::class, 'preLoadsDetail'])->name("viewEditDetail");
+    Route::get("/profile/edit-address", [UserController::class, 'preLoadsAddress'])->name("viewEditAddress");
+    Route::get("/profile/edit-email", [UserController::class, 'preLoadsEmail'])->name("viewEditEmail");
+    Route::get("/profile/edit-password", [UserController::class, 'preLoadsPassword'])->name("viewEditPassword");
     Route::post('/profile/edit-detail', [UserController::class, 'editDetail'])->name("editDetail");
     Route::post('/profile/edit-address', [UserController::class, 'editAddress'])->name("editAddress");
     Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");
