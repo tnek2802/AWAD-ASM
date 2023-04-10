@@ -31,7 +31,7 @@ class cartController extends Controller
             $stock = ShoeSize::where('product_id', $product_id)->value($size);
 
         $cart = session()->get('cart');
-        // dd($cart);
+        //dd($cart);
         // FIRST CONDITION -> Cart session not set
         if (!$cart) {
             if ($stock <= 0) {
@@ -97,4 +97,48 @@ class cartController extends Controller
 
         return redirect()->back()->with('success', 'Product removed from cart successfully!');
     }
+
+    // add to cart page ge function
+    public function purchase(Request $request) {
+
+        // Retrieve session data 
+        $cart = session()->get('cart');
+
+        // From $cart retrieve all the products + quantity
+        $products = [];
+        $totalPrice = 0;
+        foreach ($cart as $key => $value) {
+                $product = [
+                'product_id' => $value['product_id'],
+                'product_name' => $value['product_name'],
+                'quantity' => $value['quantity'],
+                'product_price' => $value['product_price'],
+                'size' => $value['size'],
+            ];
+            array_push($products, $product);
+            
+            // Calculate the total price
+            $totalPrice += $value['product_price'] * $value['quantity'];
+            
+            // Update the product stock
+            $product_id = $value['product_id'];
+            $size = $value['size'];
+            if ($value['product_category'] == "Clothes") {
+                $clothesSize = ClothesSize::where('product_id', $product_id)->first();
+                $clothesSize->$size -= $value['quantity'];
+                $clothesSize->save();
+            } else {
+                $shoeSize = ShoeSize::where('product_id', $product_id)->first();
+                $shoeSize->$size -= $value['quantity'];
+                $shoeSize->save();
+            }
+        }
+        // Clear the cart data from the session
+        session()->forget('cart');
+        return view('purchase', ['products' => $products, 'totalPrice' => $totalPrice]);
+        
+        //redirect to the order summary
+        
+    }
+    
 }
