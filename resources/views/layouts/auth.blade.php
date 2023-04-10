@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ __('Abibas') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ __('Abibas') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -70,6 +70,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
+                                    @can('isUser')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
+                                    </li>
+                                    @endcan
                                 @endif
 
                                 <li class="nav-item dropdown">
@@ -79,7 +84,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        @can('isUser')
                                         <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
+                                        @endcan
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

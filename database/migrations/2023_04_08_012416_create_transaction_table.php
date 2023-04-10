@@ -20,6 +20,7 @@ class CreateTransactionTable extends Migration
             $table->double('total_amount');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

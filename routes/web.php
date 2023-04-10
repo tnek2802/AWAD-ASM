@@ -3,19 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
+use App\Http\Middleware\adminCheck;
 
 //START shopping and products section
 Route::get('/shoppingPage', function () {
     return view('shoppingPage');
 });
-// Route::get('/', function () {
-//     // return redirect('/home');
-//     return view('home');
-// }); 
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -23,9 +21,7 @@ Route::get('/success', function () {
     return view('loginSuccess');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+
 
 Route::get('/MenShoes', [productController::class, 'menShoes']);
 
@@ -37,36 +33,35 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 
 //END shopping and products section
 
-Route::get("/profile", [UserController::class, 'preLoads']);
-Route::get("/addressbook", [UserController::class, 'profile.addressbook']);
+// START shopping cart
+Route::get('/cart', [cartController::class, 'index'])->name('cart')->middleware('protectedCart');   
+Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
+Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
+Route::post('/purchase', [cartController::class, 'purchase'])->name('purchase');
+
+// END shopping cart
+
+Route::get("/profile" , [UserController::class, 'preLoads']);
+Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
 //GET ORDER DETAILS PAGE
-Route::get('/orderdetails/{userid}', [transactionController::class, 'getOrderDetails'])->name("orderdetails");
+Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails'])->name('orderdetails');
 
 // START authentication section
 Auth::routes();
 
-Route::get('/login/admin', [LoginController::class, 'showAdminLoginForm']);
 
-Route::get('/register/admin', [RegisterController::class, 'showAdminRegisterForm']);
 
-Route::post('/login/admin/user', [LoginController::class, 'adminLogin']);
-
-Route::post('/register/admin', [RegisterController::class, 'createAdmin']);
-
-// Route::group(['middleware' => 'auth:admin'], function () {
-//     Route::view('/admin', 'admin');
-// });
 // Admin Section
-Route::get('/admin', [productController::class, 'adminProductList']);
+
+Route::get('/admin', [productController::class, 'adminProductList'])->middleware('protectedPage');
 
 // Route::get('/addProduct', [productController::class, 'addProduct']);
-
-Route::view("addProduct", "addProduct");
-Route::post("addProduct", [productController::class, 'addProduct']);
-Route::get("deleteProduct/{product_id}", [productController::class, 'deleteProduct']);
-Route::get("updateProduct/{product_id}", [productController::class, 'showProduct']);
-Route::post("updateProduct/{product_id}", [productController::class, 'updateProduct']);
+Route::view("addProduct", "addProduct")->middleware('protectedPage');
+Route::post("addProduct",[productController::class, 'addProduct'])->middleware('protectedPage');
+Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct'])->middleware('protectedPage');
+Route::get("updateProduct/{product_id}", [productController::class,'showProduct'])->middleware('protectedPage');
+Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 
@@ -84,6 +79,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
 });
 
-Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Middleware session
+// Route::group(['middleware' => ['protectedPage']], function()
+//     {
+//         Route::view("addProduct", "addProduct");
+//         Route::view("updateProduct", "updateProduct");
+//     }
+// );

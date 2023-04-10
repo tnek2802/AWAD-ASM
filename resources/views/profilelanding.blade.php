@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('content')
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <title>Profile Page</title>
+<head>
+    <title>Profile Page</title>
 
-        <!-- Custom Css -->
-        <link rel="stylesheet" href="{{ url('css/profilePage.css') }}">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{{ url('css/profilePage.css') }}">
 
-        <!-- FontAwesome 5 -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    </head>
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
 
     <body>
         <div class="mainbox">
@@ -94,5 +94,5 @@
         </div>
     </body>
 
-    </html>
+</html>
 @endsection
