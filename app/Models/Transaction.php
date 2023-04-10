@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     protected $table = 'transaction';
+    protected $primaryKey = 'transaction_id';
     
     use HasFactory;
 
@@ -18,6 +19,6 @@ class Transaction extends Model
 
     // Transaction many-to-many relationship with Product
     public function Products() {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class,  'product_transaction', 'transaction_id', 'product_id')->withPivot('transaction_quantity'); 
     }
 }
