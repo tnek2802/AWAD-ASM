@@ -57,7 +57,7 @@
             <div class="buttons">
                 <div class="btn1">
                     <input type="hidden" name="product_id" value="{{$product->product_id}}">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Add To Cart</button>
                     </form>
                 </div>
                 <div class="btn2">
