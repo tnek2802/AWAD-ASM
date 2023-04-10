@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    @if(session()->has('status'))
+    <h3 style="background-color:rgba(221,255,221,1.00); text-align:center;"> {{ session('status') }} </h3>
+    @endif
     <section class="section2">
         <div class="product">
             @foreach ($products as $product)

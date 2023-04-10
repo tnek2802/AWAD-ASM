@@ -3,6 +3,9 @@
 
 <div class="container my-5">
     <div class="card shadow">
+        @if(session()->has('status'))
+            <h3 style="background-color:rgba(221,255,221,1.00); text-align:center;"> {{ session('status') }} </h3>
+        @endif
         <div class="card-body" style="display:grid">
             <table>
                 <th>
@@ -73,18 +76,25 @@
                             </form>
                         </div>
                     </td>
-                </tr>
+                </tr>   
                 @endforeach
                 @else
+                <tr></tr>
                 <tr>
-                    <td colspan="10">
-                        <div class="col-md-10">
-                            <div style="text-align:center; font-size:18px"> No Item Added in Cart </div>
+                    <td colspan="12">
+                        <div class="col-md-12">
+                            <div style="text-align:center; font-size:18px; margin:70px;padding-left:40px;"> No Item Added in Cart </div>
                         </div>
                     </td>
                 </tr>
                 @endif
-            </table>
+                </table>
+                <div class="bottom-right justify-content-end pr-3 pb-3">
+                    <form method="POST" action="{{ route('purchase') }}">
+                        @csrf
+                        <button type ="submit" class="btn btn-success">Purchase</button>
+                    </form>
+                </div>
         </div>
     </div>
 </div>
