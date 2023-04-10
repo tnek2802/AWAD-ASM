@@ -109,10 +109,10 @@ class cartController extends Controller
             session()->put('cart', $cart);
         }
 
-        dd($cart);
+        // dd($cart);
 
         return redirect()->back()->with('success', 'Product removed from cart successfully!');
-    }
+    }   
 
     // add to cart page ge function
     public function purchase(Request $request) {
