@@ -17,15 +17,13 @@ class adminCheck
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-public function handle(Request $request, Closure $next)
-{
-    if (! Auth::check() || Auth::user()->role() != 'admin'){
-        // $products = Product::all();
-        // return view('/admin', ['products' => $products, 'productData' => $productData]);
-        return redirect('/');
+    public function handle(Request $request, Closure $next)
+    {
+        if (! Auth::check() || Auth::user()->role() != 'admin'){
+            return redirect('/');
+        }
+
+        return $next($request);
+        
     }
-    
-    return $next($request);
-    
-}
 }

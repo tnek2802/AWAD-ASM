@@ -57,10 +57,10 @@ Auth::routes();
 Route::get('/admin', [productController::class, 'adminProductList'])->middleware('protectedPage');
 
 // Route::get('/addProduct', [productController::class, 'addProduct']);
-Route::view("addProduct", "addProduct");
-Route::post("addProduct",[productController::class, 'addProduct']);
-Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct']);
-Route::get("updateProduct/{product_id}", [productController::class,'showProduct']);
+Route::view("addProduct", "addProduct")->middleware('protectedPage');
+Route::post("addProduct",[productController::class, 'addProduct'])->middleware('protectedPage');
+Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct'])->middleware('protectedPage');
+Route::get("updateProduct/{product_id}", [productController::class,'showProduct'])->middleware('protectedPage');
 Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
@@ -75,10 +75,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
 });
 
-// // //Middleware session
+//Middleware session
 // Route::group(['middleware' => ['protectedPage']], function()
 //     {
-//         Route::view("admin", "admin");
 //         Route::view("addProduct", "addProduct");
 //         Route::view("updateProduct", "updateProduct");
 //     }
