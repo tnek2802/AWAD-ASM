@@ -41,7 +41,7 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 // START shopping cart
 Route::get('/cart', [cartController::class, 'index'])->name('cart');   
 Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
-Route::post('/deleteItem', [cartController::class, 'deleteItem'])->name('deleteItem');
+Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
 // END shopping cart
 
 Route::get("/profile" , [UserController::class, 'preLoads']);

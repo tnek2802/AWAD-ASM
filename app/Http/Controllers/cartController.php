@@ -99,7 +99,7 @@ class cartController extends Controller
     public function removeItem(Request $request)
     {
         $product_id = $request->input('product_id');
-        $size = $request->input('size'); // S M L XL
+        $size = $request->input('product_size'); // S M L XL
         $productKey = $product_id . $size;
 
         $cart = session()->get('cart');
@@ -110,6 +110,7 @@ class cartController extends Controller
         }
 
         dd($cart);
+
         return redirect()->back()->with('success', 'Product removed from cart successfully!');
     }
 
