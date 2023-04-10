@@ -70,9 +70,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
+                                    @can('isUser')
                                     <li class="nav-item">
                                         <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
                                     </li>
+                                    @endcan
                                 @endif
 
                                 <li class="nav-item dropdown">
@@ -82,7 +84,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        @can('isUser')
                                         <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
+                                        @endcan
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
