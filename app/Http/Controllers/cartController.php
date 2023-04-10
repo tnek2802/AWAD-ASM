@@ -17,15 +17,6 @@ class cartController extends Controller
     public function index()
     {
         $cart = session()->get('cart');
-        
-        // $products = [];
-        // foreach($cart as $product) {
-        //     $p = Product::find($product['product_id']);
-        //     $products[] = $p;
-        // }
-
-        // dd($cart);
-
         return view('/cart', ['carts' => $cart]);
     }
 
@@ -47,7 +38,7 @@ class cartController extends Controller
         // FIRST CONDITION -> Cart session not set
         if (!$cart) {
             if ($stock <= 0) {
-                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
+                return redirect()->back()->with('status', "{$product->product_name} - {$size} is out of stock!");
             }
 
             $cart = [
@@ -63,7 +54,7 @@ class cartController extends Controller
             ];
 
             session()->put('cart', $cart);
-            return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
+            return redirect()->back()->with('status', "{$product->product_name} - {$size} added to cart successfully!");
         }
 
         // SECOND CONDITION -> Cart & Product alrdy added 
@@ -72,15 +63,15 @@ class cartController extends Controller
             $cart[$productKey]['quantity']++;
 
             if ($stock < $cart[$productKey]['quantity']) {
-                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
+                return redirect()->back()->with('status', "{$product->product_name} - {$size} is out of stock!");
             }
 
-            return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
+            return redirect()->back()->with('status', "{$product->product_name} - {$size} added to cart successfully!");
         }
 
         // THIRD CONDITION -> Cart existed but Product not added yet
             if ($stock <= 0) {
-                return redirect()->back()->with('status', "{$product->product_name} is out of stock!");
+                return redirect()->back()->with('status', "{$product->product_name} - {$size} is out of stock!");
             }
 
             $cart[$productKey] = [
@@ -94,7 +85,7 @@ class cartController extends Controller
             ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('status', "{$product->product_name} added to cart successfully!");
+        return redirect()->back()->with('status', "{$product->product_name} - {$size} added to cart successfully!");
     }
 
     // Remove item from cart
@@ -112,7 +103,7 @@ class cartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('status', "{$product->product_name} removed from cart successfully!");
+        return redirect()->back()->with('status', "{$product->product_name} - {$size} removed from cart successfully!");
     }   
 
     // Purchase function

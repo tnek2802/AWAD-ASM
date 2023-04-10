@@ -41,7 +41,7 @@ Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 
 // START shopping cart
 Route::get('/cart', [cartController::class, 'index'])->name('cart')->middleware('protectedCart');   
-Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
+Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem')->middleware('protectedCart'); 
 Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
 Route::post('/purchase', [cartController::class, 'purchase'])->name('purchase');
 
