@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
 use App\Http\Controllers\UserController;
@@ -36,6 +37,12 @@ Route::get('/MenClothes', [productController::class, 'menClothes']);
 Route::get('/WomenClothes', [productController::class, 'womenClothes']);
 
 //END shopping and products section
+
+// START shopping cart
+Route::get('/cart', [cartController::class, 'index'])->name('cart');   
+Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem');
+Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
+// END shopping cart
 
 Route::get("/profile" , [UserController::class, 'preLoads']);
 Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
