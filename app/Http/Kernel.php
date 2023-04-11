@@ -57,7 +57,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'protectedPage' => \App\Http\Middleware\adminCheck::class,
-        'protectedCart' => \App\Http\Middleware\CartMiddleware::class,
+        'protectedCart' => \App\Http\Middleware\cartCheck::class,
         'protectedOrders' => \App\Http\Middleware\ownOrder::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
