@@ -4,6 +4,11 @@
 
     <head>
         <link rel='stylesheet' href="{{ url('css/home.css') }}">
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
     </head>
 
 
