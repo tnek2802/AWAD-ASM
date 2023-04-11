@@ -25,7 +25,7 @@ class ownOrder
                 return $next($request);
             }
         }
-        return redirect('/');
+        return redirect('/')->with('error', 'You are not authorized to access this page.');
     }
     //personal checkpoint
 }
