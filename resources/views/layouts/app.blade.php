@@ -18,6 +18,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -85,7 +86,9 @@
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
+                                        <a class="nav-link" href='/cart'>
+                                            <i class="fa fa-shopping-cart" style="font-size:24px"></i>
+                                        </a>
                                     </li>
                                 @endif
 

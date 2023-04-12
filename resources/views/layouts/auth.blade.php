@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -58,7 +59,7 @@
                                     <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                 </li>
                                 <li>
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
@@ -83,10 +84,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
-                                    @if(Auth::check() && Auth::user()->role() == 'user')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href='/cart'>{{ __('Cart') }}</a>
-                                    </li>
+                                    @if (Auth::check() && Auth::user()->role() == 'user')
+                                        <li class="nav-item">
+                                            <a class="nav-link" href='/cart'>
+                                                <i class="fa fa-shopping-cart" style="font-size:24px"></i>
+                                            </a>
+                                        </li>
                                     @endif
                                 @endif
 
@@ -97,8 +100,8 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        @if(Auth::user()->role() == 'user')
-                                        <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
+                                        @if (Auth::user()->role() == 'user')
+                                            <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
                                         @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
