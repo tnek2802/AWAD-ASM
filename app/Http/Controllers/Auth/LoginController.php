@@ -56,7 +56,7 @@ class LoginController extends Controller
                     return redirect('/admin');
                 }
                 if (Auth::user()->role() == 'user') {
-                    return redirect('/success');
+                    return redirect('/profile');
                 }
             } else {
                 return back()->withErrors(['email' => 'Invalid email or password.'])->withInput($request->only('email'));
