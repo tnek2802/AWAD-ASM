@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\transactionController;
@@ -55,8 +54,6 @@ Auth::routes();
 // Admin Section
 
 Route::get('/admin', [productController::class, 'adminProductList'])->middleware('protectedPage');
-
-// Route::get('/addProduct', [productController::class, 'addProduct']);
 Route::view("addProduct", "addProduct")->middleware('protectedPage');
 Route::post("addProduct",[productController::class, 'addProduct'])->middleware('protectedPage');
 Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct'])->middleware('protectedPage');
@@ -78,11 +75,3 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/edit-email', [UserController::class, 'editEmail'])->name("editEmail");
     Route::post('/profile/edit-password', [UserController::class, 'editPassword'])->name("editPassword");
 });
-
-//Middleware session
-// Route::group(['middleware' => ['protectedPage']], function()
-//     {
-//         Route::view("addProduct", "addProduct");
-//         Route::view("updateProduct", "updateProduct");
-//     }
-// );
