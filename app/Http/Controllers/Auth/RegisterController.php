@@ -83,14 +83,5 @@ class RegisterController extends Controller
             'address' => $data['address'],
         ]);
     }
-    // protected function createAdmin(Request $request)
-    // {
-    //     $this->validator($request->all())->validate();
-    //     Admin::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password),
-    //      ]);
-    //     return redirect()->intended('login/admin');
-    // }
+
 }

@@ -16,10 +16,6 @@ Route::get('/shoppingPage', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/success', function () {
-    return view('loginSuccess');
-});
-
 
 
 Route::get('/MenShoes', [productController::class, 'menShoes']);
