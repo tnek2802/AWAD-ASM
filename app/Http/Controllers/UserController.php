@@ -67,7 +67,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->address = $req->addresschg;
         $data->save();
-        return redirect(route('profile'))->with('status', "Address editted successfully!");
+        return redirect(route('profile'))->with('status', "Address edited successfully!");
     }
 
     public function editEmail(User $user, Request $req)
@@ -81,7 +81,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->email = $req->emailchg;
         $data->save();
-        return redirect(route('profile'))->with('status', "Email editted successfully!");
+        return redirect(route('profile'))->with('status', "Email edited successfully!");
     }
     public function editPassword(User $user, Request $req)
     {
@@ -92,6 +92,6 @@ class UserController extends Controller
         $data = User::find($id);
         $data->password = bcrypt($req->password);
         $data->save();
-        return redirect(route('profile'))->with('status', "Password editted successfully!");
+        return redirect(route('profile'))->with('status', "Password edited successfully!");
     }
 }
