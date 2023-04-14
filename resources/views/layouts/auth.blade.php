@@ -84,7 +84,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='/WomenShoes'>{{ __('Women Shoes') }}</a>
                                     </li>
-                                    @if (Auth::check() && Auth::user()->role() == 'user')
+                                    @if (Gate::allows('isUser'))
                                         <li class="nav-item">
                                             <a class="nav-link" href='/cart'>
                                                 <i class="fa fa-shopping-cart" style="font-size:24px"></i>
@@ -100,7 +100,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        @if (Auth::user()->role() == 'user')
+                                        @if (Gate::allows('isUser'))
                                             <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
                                         @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Hash;
+use Illuminate\Support\Facades\Gate;
 class LoginController extends Controller
 {
     /*
@@ -51,10 +52,10 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                if (Auth::user()->role() == 'admin') {
+                if (Gate::allows('isAdmin')) {
                     return redirect('/admin');
                 }
-                if (Auth::user()->role() == 'user') {
+                if (Gate::allows('isUser')) {
                     return redirect('/profile');
                 }
             } else {
