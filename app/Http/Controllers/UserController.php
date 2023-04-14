@@ -42,7 +42,15 @@ class UserController extends Controller
     {
         $this->validate($req, [
             'usernamechg' =>  'required|unique:users,username,'.$req->user()->id,
-            'contactchg' => 'required|unique:users,contact_num|min:11|max:14|regex:/^\d+$/'
+            'contactchg' => [
+                'sometimes',
+                'exclude',
+                'required',
+                'unique:users,contact_num,'.$req->user()->id,
+                'min:11',
+                'max:14',
+                'regex:/^\d+$/',
+            ],
         ], [
                 'usernamechg.unique' => 'The username has has already been registered',
                 'contactchg.unique' => 'The contact number has already been registered',
