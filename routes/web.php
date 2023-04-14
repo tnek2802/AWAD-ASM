@@ -33,11 +33,7 @@ Route::get('/cart', [cartController::class, 'index'])->name('cart')->middleware(
 Route::post('/addItem', [cartController::class, 'addItem'])->name('addItem')->middleware('protectedCart'); 
 Route::post('/removeItem', [cartController::class, 'removeItem'])->name('removeItem');
 Route::post('/purchase', [cartController::class, 'purchase'])->name('purchase');
-
 // END shopping cart
-
-Route::get("/profile" , [UserController::class, 'preLoads']);
-Route::get("/addressbook" , [UserController::class, 'profile.addressbook']);
 
 //GET ORDER DETAILS PAGE
 Route::get('/orderdetails/{userid}', [transactionController::class,'getOrderDetails'])->middleware('protectedOrders')->name('orderdetails');
