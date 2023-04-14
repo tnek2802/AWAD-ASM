@@ -9,6 +9,7 @@
                     <div class="card-header" style="font-weight:bold; font-size:20px; text-align:center;">Update Product Details</div>
                     <div class="card-body">
                     <a href="/admin" style="display: inline-block; margin-bottom: 10px; padding: 5px 15px; background-color: red; color: white; text-decoration: none; border: none; border-radius: 5px; font-size: 15px; float: left;">Back</a>
+                        <form action='updateProduct' method="POST">
                             @csrf
                             <input type = "hidden" name="product_id" value="{{$products['product_id']}}"> <br><br>
                             <label style="font-weight: bold;">Product Type:</label><input type = "text" name="product_type" value="{{$products['product_type']}}" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; width: 100%;"> <br><br>

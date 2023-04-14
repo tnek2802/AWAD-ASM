@@ -54,7 +54,7 @@ Route::view("addProduct", "addProduct")->middleware('protectedPage');
 Route::post("addProduct",[productController::class, 'addProduct'])->middleware('protectedPage');
 Route::get("deleteProduct/{product_id}", [productController::class,'deleteProduct'])->middleware('protectedPage');
 Route::get("updateProduct/{product_id}", [productController::class,'showProduct'])->middleware('protectedPage');
-Route::post("updateProduct/{product_id}", [productController::class,'updateProduct']);
+Route::post("updateProduct/{product_id}", [productController::class,'updateProduct'])->middleware('protectedPage');
 Route::get('logout', [LoginController::class, 'logout']);
 //END authentication section
 

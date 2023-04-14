@@ -103,6 +103,9 @@
                                         @if (Gate::allows('isUser'))
                                             <a class="dropdown-item" href="/profile">{{ __('Profile') }}</a>
                                         @endif
+                                        @if (Gate::allows('isAdmin'))
+                                            <a class="dropdown-item" href="/profile">{{ __('Action') }}</a>
+                                        @endif
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
