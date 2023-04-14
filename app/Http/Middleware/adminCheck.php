@@ -19,7 +19,7 @@ class adminCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! Auth::check() || Gate::allows('isUser')){
+        if (! Auth::check() || Gate::denies('isAdmin')){
             return redirect('/')->with('error', 'You are not authorized to access this page.');
         }
 
