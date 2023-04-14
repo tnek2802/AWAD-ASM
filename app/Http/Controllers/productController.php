@@ -68,9 +68,17 @@ class productController extends Controller
         $products->product_description = $req->product_description;
         $products->product_name = $req->product_name;
         $products->product_price = $req->product_price;
-        $products->image = $req->image;
+
+   // Handle image file upload
+        if ($req->hasFile('image')) {
+            $image = $req->file('image');
+            $imagePath = $image->store('public/images'); // Save image to storage folder
+            $imageUrl = asset($imagePath); // Get the URL of the stored image
+            $products->image = $imageUrl;
+        }
+
         $products->save();
-        return redirect("addProduct");
+        return redirect("admin");
     }
 
     public function deleteProduct($product_id)
@@ -92,7 +100,15 @@ class productController extends Controller
         $data->product_description = $req->product_description;
         $data->product_name = $req->product_name;
         $data->product_price = $req->product_price;
-        $data->image = $req->image;
+        
+        // Handle file upload
+        if ($req->hasFile('image')) {
+            $image = $req->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $imageName);
+            $data->image = 'images/' . $imageName;
+        }
+
         $data->save();
         return redirect("admin");
     }
