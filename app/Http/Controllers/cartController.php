@@ -65,6 +65,7 @@ class cartController extends Controller
             if ($stock < $cart[$productKey]['quantity']) {
                 return redirect()->back()->with('status', "{$product->product_name} - {$size} is out of stock!");
             }
+            session()->put('cart', $cart);
 
             return redirect()->back()->with('status', "{$product->product_name} - {$size} added to cart successfully!");
         }
